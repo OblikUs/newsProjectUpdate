@@ -58,11 +58,10 @@ let url = [
 cron.schedule('43,44 19 * * *', () => {
 
   for(var i = 0; i < url.length; i++) {
-    console.log('i: ', i);
     request(url[i], (error, response, body) => {
       console.log('response.statuscode: ', response.statusCode);
       if(!error && response.statusCode === 200) {
-        // console.log('body: ', body);
+        //push data to database after done
       }
     });
   }
