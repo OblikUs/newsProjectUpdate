@@ -1,0 +1,29 @@
+{
+  "name": "newsProjectUpdate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "cron": "^1.2.1",
+    "express": "^4.14.1",
+    "node-cron": "^1.1.3",
+    "node-schedule": "^1.2.0",
+    "request": "^2.79.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cohort15NewsProject/newsProjectUpdate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cohort15NewsProject/newsProjectUpdate/issues"
+  },
+  "homepage": "https://github.com/Cohort15NewsProject/newsProjectUpdate#readme"
+}
