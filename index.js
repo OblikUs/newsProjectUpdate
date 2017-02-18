@@ -55,17 +55,18 @@ let url = [
            "https://newsapi.org/v1/articles?source=usa-today&sortBy=top&apiKey=9f3b3102ab704b7c9a874ee92cdb288f",
            ]
 
-cron.schedule('43,44 19 * * *', () => {
+// cron.schedule('43,44 19 * * *', () => {
 
   for(var i = 0; i < url.length; i++) {
     request(url[i], (error, response, body) => {
       console.log('response.statuscode: ', response.statusCode);
+      console.log('json.parse(body): ', JSON.parse(body));
       if(!error && response.statusCode === 200) {
         //push data to database after done
       }
     });
   }
-})
+// })
 
 
 
