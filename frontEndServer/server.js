@@ -1,20 +1,9 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const exphbs = require('express-handlebars');
 const MetaInspector = require('meta-scrape');
 const https = require('https');
 const fs = require('fs');
-
-//Handlebars
-app.engine('.hbs', exphbs({
-  extname: '.hbs',
-  defaultLayout: 'main',
-}))
-
-app.set('view engine', '.hbs');
-
-app.use(express.static('public'));
 
 //Body Parser
 app.use(bodyParser.json({
