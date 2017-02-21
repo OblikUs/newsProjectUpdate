@@ -6,6 +6,7 @@ const MetaInspector = require('meta-scrape');
 const https = require('https');
 const fs = require('fs');
 
+//Handlebars
 app.engine('.hbs', exphbs({
   extname: '.hbs',
   defaultLayout: 'main',
@@ -13,18 +14,19 @@ app.engine('.hbs', exphbs({
 
 app.set('view engine', '.hbs');
 
-app.set('views', 'views')
-
 app.use(express.static('public'));
 
+//Body Parser
 app.use(bodyParser.json({
   extended:true
 }));
 
+//Landing Page
 app.get('/', (req, res) => {
   res.render('index');
 })
 
+//Scraper that takes the URL
 app.post('/', (req,res) => {
   let client = new MetaInspector(req.body.url, {});
 
@@ -40,6 +42,7 @@ app.post('/', (req,res) => {
 
 })
 
+//SSL so that we can take URL from Https
 let secureServer = https.createServer({
     key: fs.readFileSync('./ssl/server.key'),
     cert: fs.readFileSync('./ssl/server.crt'),

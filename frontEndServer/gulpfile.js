@@ -18,11 +18,11 @@ gulp.task('browserSync', () => {
 
 gulp.task('livereload', function (){
   gulp.src('./views/**/*')
-  .pipe(browserSync.reload());
+  .pipe(browserSync.reload({stream:true}));
 });
 
 gulp.task('watch', function () {
-  gulp.watch('./sass/*.scss', ['sass']);
+  gulp.watch('./sass/**/*.scss', ['sass']);
   gulp.watch('./public/**/*', ['livereload']);
 });
 
