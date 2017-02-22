@@ -7,7 +7,7 @@ import {
   IndexRoute
 } from 'react-router';
 import App from "./components/App.js";
-import Page from "./components/Page.js";
+import Page from "./static/Page.js";
 import How from "./static/How";
 import AboutUs from "./static/AboutUs";
 

@@ -1,0 +1,52 @@
+.banner {
+  color: #fff;
+  background: #3acec2;
+  padding: 5em 8em 8em 8em;
+  text-align: center;
+
+  .container{
+    margin-bottom: 40px;
+    .headline {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+
+    }
+
+    .tagline {
+      font-family: 'Montserrat', sans-serif;
+    }
+  }
+  .btn {
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 21px;
+    box-shadow: 0px 2px 4px #666666;
+    color: #000000;
+    font-size: 23px;
+    background: #ffffff;
+    padding: 10px 10px;
+    text-decoration: none;
+
+  }
+
+  .btn:hover {
+    background: grey;
+    text-decoration: none;
+  }
+
+  .btn:focus {
+    outline: none;
+  }
+}
+
+.imgContainer {
+  margin-top: 30px;
+  .newsExplain {
+    text-align: center;
+  }
+
+  .newsLogos{
+    display: block;
+    margin: auto;
+    width: 85%;
+  }
+}
