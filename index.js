@@ -54,6 +54,10 @@ let urls = [
            "https://newsapi.org/v1/articles?source=time&sortBy=top&apiKey=9f3b3102ab704b7c9a874ee92cdb288f",
            "https://newsapi.org/v1/articles?source=usa-today&sortBy=top&apiKey=9f3b3102ab704b7c9a874ee92cdb288f",
            ]
+
+// cron.schedule('43,44 19 * * *', () => {
+
+  // })
 const apiKey = 'PRcyspm59vmsh7X8ue7NfZFzZz7op1oAfxsjsnCLMHQkRfnvUL';
 
 Promise.map(urls, (topStoryUrl) => {
