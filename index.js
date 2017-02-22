@@ -74,7 +74,7 @@ Promise.map(urls, (topStoryUrl) => {
 }, [])
 .map((topStory) => {
   let encodedUrl = encodeURIComponent(topStory.url.trim());
-  console.log(encodedUrl)
+  // console.log(encodedUrl)
   return got(
     'https://joanfihu-article-analysis-v1.p.mashape.com/link?' +
     'entity_description=False&' +
