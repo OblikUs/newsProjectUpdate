@@ -1,0 +1,61 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.container {
+  padding-top: 2em;
+  padding-bottom: .5em;
+  font-family: 'Montserrat', sans-serif;
+  // background: yellow;
+  text-align: center;
+  margin-bottom: 20px;
+
+  .logo {
+    color: black;
+    font-size: 50px;
+  }
+
+  .mainNav {
+    color: black;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-transform: uppercase;
+
+    a {
+      display: block;
+      margin-left: 10px;
+      margin-right: 10px;
+      margin-top: 5px;
+    }
+  }
+
+  .mainNav a:hover {
+    color: grey;
+  }
+}
+
+@media (min-width: 769px) {
+
+  .container,
+  .mainNav {
+    display: flex;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+}
+
+@media (min-width: 1025px) {
+
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}
