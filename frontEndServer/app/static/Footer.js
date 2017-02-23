@@ -9,7 +9,7 @@ const Footer = () => (
       <Link to="/about-us"><li>About Us</li></Link>
       <li><a href="#">Install Oblik</a></li>
     </ul>
-      <div className={styles.logo}><a href='#'>Oblik</a></div>
+      <div className={styles.madeBy}><a href='#'>Made with &#10084; by Devleague Cohort15</a></div>
   </div>
 );
 

@@ -10,9 +10,13 @@ a {
   font-family: 'Montserrat', sans-serif;
   text-align: center;
 
-  .logo {
-    color: black;
-    font-size: 50px;
+  .madeBy {
+    font-size: 15px;
+    margin-top: 10px;
+
+    a {
+      color: white;
+    }
   }
 
   .mainNav {
@@ -49,12 +53,3 @@ a {
 
 }
 
-// @media (min-width: 1025px) {
-
-//   .container {
-//     flex-direction: row;
-//     justify-content: space-between;
-//     padding-left: 100px;
-//     padding-right: 100px;
-//   }
-// }
