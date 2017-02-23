@@ -4,7 +4,7 @@ a {
 }
 
 .container {
-  padding-top: .5em;
+  padding-top: 2em;
   padding-bottom: .5em;
   font-family: 'Montserrat', sans-serif;
   // background: yellow;
@@ -55,7 +55,7 @@ a {
   .container {
     flex-direction: row;
     justify-content: space-between;
-    padding-left: 150px;
+    padding-left: 100px;
     padding-right: 100px;
   }
 }

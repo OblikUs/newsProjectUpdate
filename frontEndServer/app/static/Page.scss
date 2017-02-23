@@ -1,3 +1,5 @@
+
+//banner
 .banner {
   color: #fff;
   background: #3acec2;
@@ -38,15 +40,61 @@
   }
 }
 
+//new source logos
 .imgContainer {
-  margin-top: 30px;
+  margin-top: 70px;
+
   .newsExplain {
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 25px;
   }
 
   .newsLogos{
     display: block;
     margin: auto;
     width: 85%;
+    margin-bottom: 100px;
   }
+}
+
+//body
+.row {
+  margin-bottom: 50px;
+  font-family: 'Montserrat', sans-serif;
+
+  .primary {
+    margin-left: 70px;
+    margin-right: 100px;
+  }
+
+  .secondary{
+    margin-right: 70px;
+    margin-left: 70px;
+
+    .screenshot{
+      border: 1px solid black;
+      height: 300px;
+    }
+  }
+}
+
+@media (min-width: 769px) {
+
+  .row {
+    display: flex;
+  }
+
+  .col {
+    flex: 1;
+  }
+
+}
+
+@media (min-width: 1025px) {
+
+  .primary {
+    flex:2;
+  }
+
 }
