@@ -19,7 +19,7 @@ module.exports = {
   resolve: {},
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'index.tpl.html',
+      template: 'frontEndServer/index.tpl.html',
       inject: 'body',
       filename: 'index.html',
     }),
