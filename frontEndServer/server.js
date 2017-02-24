@@ -72,8 +72,8 @@ if (isDeveloping) {
 
 //SSL so that we can take URL from Https
 let secureServer = https.createServer({
-    key: fs.readFileSync('./frontEndServer/server.key'),
-    cert: fs.readFileSync('./frontEndServer/server.crt'),
+    key: fs.readFileSync('./frontEndServer/ssl/server.key'),
+    cert: fs.readFileSync('./frontEndServer/ssl/server.crt'),
     ca: fs.readFileSync('./frontEndServer/ca.crt'),
     requestCert: true,
     rejectUnauthorized: false
