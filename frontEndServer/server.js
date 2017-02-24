@@ -9,6 +9,8 @@ const webpack = require('webpack');
 const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const devConfig = require('./webpack.dev.config.js');
+const popup = require('./routes/popup');
+
 
 // Check to see what dev environment we are in
 const isDeveloping = process.env.NODE_ENV !== 'production';
@@ -19,12 +21,15 @@ app.use(bodyParser.json({
   extended:true
 }));
 
+app.use('/api/popup', popup);
+
 //Scraper that takes the URL
 app.post('/', (req,res) => {
   let client = new MetaInspector(req.body.url, {});
 
   client.on("fetch", function(){
-    console.log("keywords: " + client.keywords);
+    console.log("title: " + client.title);
+    console.log("description: " + client.description);
   });
 
   client.on("error", function(err){
@@ -72,14 +77,14 @@ if (isDeveloping) {
 
 //SSL so that we can take URL from Https
 let secureServer = https.createServer({
-    key: fs.readFileSync('./frontEndServer/server.key'),
-    cert: fs.readFileSync('./frontEndServer/server.crt'),
-    ca: fs.readFileSync('./frontEndServer/ca.crt'),
-    requestCert: true,
+    key: fs.readFileSync('./frontEndServer/ssl/server.key'),
+    cert: fs.readFileSync('./frontEndServer/ssl/server.crt'),
+    ca: fs.readFileSync('./frontEndServer/ssl/ca.crt'),
+    requestCert: false,
     rejectUnauthorized: false
 }, app).listen('8080', function() {
     console.log("Secure Express server listening on port 8080");
 });
 
 
-app.listen(port, 'localhost', secureServer);
+module.exports = app;
