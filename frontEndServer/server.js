@@ -80,7 +80,7 @@ let secureServer = https.createServer({
     key: fs.readFileSync('./frontEndServer/ssl/server.key'),
     cert: fs.readFileSync('./frontEndServer/ssl/server.crt'),
     ca: fs.readFileSync('./frontEndServer/ssl/ca.crt'),
-    requestCert: false,
+    requestCert: true,
     rejectUnauthorized: false
 }, app).listen('8080', function() {
     console.log("Secure Express server listening on port 8080");
