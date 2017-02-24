@@ -1,4 +1,5 @@
 const sources = require('./sources')
+const stopWords = require('./stopWords')
 
 // FIX SKY.NEWS
 
@@ -22,12 +23,31 @@ module.exports = (() => {
     })
   }
 
-  const keywordGenerator = (entities, tags) => {
-    entities = entities.map( entity => { return entity.toLowerCase()});
-    keywords = tags.filter( tag => {
-      return entities.indexOf(tag) === -1
-    }).concat(entities)
-    return keywords
+  const keywordGenerator = (title, description) => {
+    title = title.toLowerCase().split(' ');
+    description  = description.toLowerCase().split(' ');
+    let kws = title.filter( word => {
+      return stopWords.indexOf(word) === -1
+    }).concat(
+      description.filter( word => {
+        return stopWords.indexOf(word) === -1 && title.indexOf(word) === -1
+      })
+    ).map( word => {
+      let punctuations = ['.', ',', "'", '?', '!', ':', ';']
+      let splitW = word.split('')
+      if(splitW[splitW.length-1] === 's' && splitW[splitW.length-2] === "'") {
+        let newLen = splitW.length-2
+        word =  splitW.join('').substring(0, newLen);
+      } else if(punctuations.indexOf(splitW[0]) !== -1 ) {
+        word = splitW.splice(0, 1).join('');
+      } else if(punctuations.indexOf(splitW[splitW.length-1]) !== -1 ) {
+        splitW.splice(splitW.length-1, 1);
+        word = splitW.join('')
+      }
+      return word
+
+    })
+    return kws
   }
 
   const newData = (title, source, view, url, keywords) => {
@@ -43,7 +63,7 @@ module.exports = (() => {
   return {
     sourceFinder,
     keywordGenerator,
-    newData
+    newData,
   }
 
 
