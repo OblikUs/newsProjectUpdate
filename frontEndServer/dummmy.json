@@ -1,0 +1,107 @@
+{
+  "results": [
+    {
+      "columns": [
+        "a"
+      ],
+      "data": [
+        {
+          "row": [
+            {
+              "view": "liberal",
+              "source": [
+                "Cnn Staff"
+              ],
+              "title": "Pentagon officials: Russian actions a 'test of the new administration'",
+              "url": "http://www.cnn.com/2017/02/18/politics/russia-military-test-trump-administration/index.html"
+            }
+          ],
+          "meta": [
+            {
+              "id": 297,
+              "type": "node",
+              "deleted": false
+            }
+          ]
+        },
+        {
+          "row": [
+            {
+              "view": "liberal",
+              "source": [
+                "Cnn Staff"
+              ],
+              "title": "National Security Council vacuum sparks crisis fears",
+              "url": "http://www.cnn.com/2017/02/17/politics/donald-trump-nsc-foreign-policy/index.html"
+            }
+          ],
+          "meta": [
+            {
+              "id": 298,
+              "type": "node",
+              "deleted": false
+            }
+          ]
+        },
+        {
+          "row": [
+            {
+              "view": "conservative",
+              "source": [
+                "Foxnews Staff"
+              ],
+              "title": "Trump returns to Florida for campaign rally, hoping to reignite voters with unfiltered message",
+              "url": "http://www.foxnews.com/politics/2017/02/18/trump-returns-to-florida-for-campaign-style-rally-hoping-to-reignite-voters-with-unfiltered-message.html"
+            }
+          ],
+          "meta": [
+            {
+              "id": 299,
+              "type": "node",
+              "deleted": false
+            }
+          ]
+        },
+        {
+          "row": [
+            {
+              "view": "conservative",
+              "source": [
+                "Foxnews Staff"
+              ],
+              "title": "Black lawmakers dismayed after Trump's invitation to black reporter",
+              "url": "http://www.foxnews.com/politics/2017/02/16/black-lawmakers-dismayed-after-trumps-invitation-to-black-reporter.html"
+            }
+          ],
+          "meta": [
+            {
+              "id": 301,
+              "type": "node",
+              "deleted": false
+            }
+          ]
+        },
+        {
+          "row": [
+            {
+              "view": "conservative",
+              "source": [
+                "Foxnews Staff"
+              ],
+              "title": "Trump's 1st Month: Rapid-fire executive actions, Donald diplomacy – and controversy",
+              "url": "http://www.foxnews.com/politics/2017/02/17/trumps-1st-month-rapid-fire-executive-actions-donald-diplomacy-and-controversy.html"
+            }
+          ],
+          "meta": [
+            {
+              "id": 302,
+              "type": "node",
+              "deleted": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": []
+}
