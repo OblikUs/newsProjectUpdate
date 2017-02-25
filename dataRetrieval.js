@@ -98,8 +98,7 @@ Promise.map(urls, (topStoryUrl) => {
     article.description = '';
   }
   let keywords = md.keywordGenerator(article.title, article.description)
-  let test = md.keywordGenerator("car's trump's cat., blue's, the'se, ...", "cars'")
-  console.log(test);
+  console.log(keywords);
   let source = md.sourceFinder(article.url);
   if(source.length === 0) {
     source = [{source: article.author, name: 'unknown', view: 'n/a'}]
@@ -109,7 +108,7 @@ Promise.map(urls, (topStoryUrl) => {
 .then((data) => {
   let json = {};
   json['data'] = data
-  // cypher(query, {json:json}, function(err, result) { console.log(err, JSON.stringify(result))});
+  cypher(query, {json:json}, function(err, result) { console.log(err, JSON.stringify(result))});
 })
 .catch(error => {
   console.log(error);
