@@ -22,7 +22,7 @@ function cypher(query, params, cb) {
     })
 }
 
-let query = `
+let articleQuery = `
 WITH {json} AS data
 UNWIND data.data as x
 MERGE (article:Article {title: x.title}) ON CREATE
@@ -30,6 +30,19 @@ MERGE (article:Article {title: x.title}) ON CREATE
 
 FOREACH (keywordWord IN x.keywords | MERGE (keyword:Keyword {word: keywordWord}) MERGE (article)-[:HAS_KEYWORD]->(keyword))
 `;
+
+let orientationQuery = `
+WITH {json} AS data
+UNWIND data.data as x
+MERGE (o:Orientation {name: 'x.orientation'})
+
+FOREACH (word IN x.words |
+MERGE ( w:Word {word: x.word})
+ON CREATE SET o.score = 0
+ON MATCH SET o.score = o.score + 1 )
+MERGE (o)-[:HAS_WORD]->(w)
+`;
+
 
 let urls = [
            "https://newsapi.org/v1/articles?source=cnn&sortBy=top&apiKey=9f3b3102ab704b7c9a874ee92cdb288f",
@@ -108,7 +121,7 @@ Promise.map(urls, (topStoryUrl) => {
 .then((data) => {
   let json = {};
   json['data'] = data
-  cypher(query, {json:json}, function(err, result) { console.log(err, JSON.stringify(result))});
+  cypher(articleQuery, {json:json}, function(err, result) { console.log(err, JSON.stringify(result))});
 })
 .catch(error => {
   console.log(error);
