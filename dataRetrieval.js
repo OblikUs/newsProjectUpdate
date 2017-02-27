@@ -15,6 +15,9 @@ function cypher(query, params, cb) {
     headers:{Authorization: usernameAndPwd},
     json:{statements:[{statement:query, parameters:params }]}},
     function(err,res) {
+      if(err) {
+        console.log(err);
+      }
       cb(err,res.body)
     })
 }
@@ -23,7 +26,7 @@ let query = `
 WITH {json} AS data
 UNWIND data.data as x
 MERGE (article:Article {title: x.title}) ON CREATE
-  SET article.source = x.source, article.url = x.url, article.view = x.view, article.publishedAt = x.date
+  SET article.source = x.source, article.url = x.url, article.view = x.view, article.publishedAt = x.date, article.image = x.image
 
 FOREACH (keywordWord IN x.keywords | MERGE (keyword:Keyword {word: keywordWord}) MERGE (article)-[:HAS_KEYWORD]->(keyword))
 `;
@@ -95,11 +98,12 @@ Promise.map(urls, (topStoryUrl) => {
     article.description = '';
   }
   let keywords = md.keywordGenerator(article.title, article.description)
+  console.log(keywords);
   let source = md.sourceFinder(article.url);
   if(source.length === 0) {
     source = [{source: article.author, name: 'unknown', view: 'n/a'}]
   }
-  return md.newData(article.title, source[0].name, source[0].view, article.url, keywords, article.publishedAt)
+  return md.newData(article.title, source[0].name, source[0].view, article.url, keywords, article.publishedAt, article.urlToImage)
 })
 .then((data) => {
   let json = {};
