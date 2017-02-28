@@ -28,7 +28,6 @@ function findArticles(query, req, res) {
         .scrapeUrl(req.body.url)
         .then(metadata => {
           let keywords = md.keywordGenerator(metadata.title, metadata.description)
-          console.log('keywords: ', keywords);
           keywords = keywords.map(word => {
             return `"${word}"`;
         }).join(', ')
