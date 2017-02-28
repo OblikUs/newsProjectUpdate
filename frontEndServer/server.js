@@ -60,7 +60,9 @@ app.post('/', (req,res) => {
       let retrieveQuery = `MATCH p=(n:Article)-[r:HAS_KEYWORD]->(k:Keyword)
       WHERE k.word IN [${keywords}] RETURN n, count(p) ORDER BY count(p) DESC`
       findArticles(retrieveQuery, req, res)
-
+    })
+    .catch(error => {
+      console.log(error);
     });
 });
 
