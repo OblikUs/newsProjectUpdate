@@ -34,7 +34,7 @@ function findArticles(query, req, res) {
         }).join(', ')
           let source = md.sourceFinder(metadata.url)
           if(source.length === 0) {
-            source = [{source: article.author, name: 'unknown', view: 'n/a'}]
+            source = [{source: 'unknown', name: 'unknown', view: 'n/a'}]
           }
           let retrieveQuery = `MATCH p=(n:Article)-[r:HAS_KEYWORD]->(k:Keyword)
           WHERE k.word IN [${keywords}] RETURN n, count(p) ORDER BY count(p) DESC`
