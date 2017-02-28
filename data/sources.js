@@ -6,6 +6,7 @@ module.exports = [
   { source: 'www.abc.net.au', name: 'ABC - Australian Broadcasting Corporation', view: '' },
   { source: 'bigstory.ap.org', name: 'Associated Press - The Big Story', view: 'center' },
   { source: 'www.bbc.co.uk', name: 'BBC', view: 'center-left' },
+  { source: 'www.bbc.com', name: 'BBC', view: 'center-left' },
   { source: 'www.bloomberg.com', name: 'Bloomberg', view: 'center-left' },
   { source: 'www.businessinsider.com', name: 'Business Insider', view: 'center' },
   { source: 'uk.businessinsider.com', name: 'Business Insider UK', view: 'center' },
