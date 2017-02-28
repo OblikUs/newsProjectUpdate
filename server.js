@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const MetaInspector = require('meta-scrape');
 const path = require('path');
 const https = require('https');
 const fs = require('fs');

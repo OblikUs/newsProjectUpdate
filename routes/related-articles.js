@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const MetaInspector = require('meta-scrape');
 const md = require('../data/modifyData');
 const usernameAndPwd = new Buffer("neo4j:c15finalP").toString('base64');
 const r = require("request");
@@ -21,30 +22,31 @@ function findArticles(query, req, res) {
     })
 }
 
-app.post('/', (req,res) => {
-  let client = new MetaInspector(req.body.url, {});
+  router.route('/')
+    .post((req,res) => {
+      let client = new MetaInspector(req.body.url, {});
 
-  client.on("fetch", function(){
-    let keywords = md.keywordGenerator(client.title, client.description)
-    keywords = keywords.map(word => {
-      return `"${word}"`;
-    }).join(', ')
-    let source = md.sourceFinder(client.url)
-    if(source.length === 0) {
-      source = [{source: article.author, name: 'unknown', view: 'n/a'}]
-    }
-  let retrieveQuery = `MATCH p=(n:Article)-[r:HAS_KEYWORD]->(k:Keyword)
-  WHERE k.word IN [${keywords}] RETURN n, count(p) ORDER BY count(p) DESC`
-  findArticles(retrieveQuery, req, res)
+    client.on("fetch", function(){
+      let keywords = md.keywordGenerator(client.title, client.description)
+      keywords = keywords.map(word => {
+        return `"${word}"`;
+      }).join(', ')
+      let source = md.sourceFinder(client.url)
+      if(source.length === 0) {
+        source = [{source: article.author, name: 'unknown', view: 'n/a'}]
+      }
+    let retrieveQuery = `MATCH p=(n:Article)-[r:HAS_KEYWORD]->(k:Keyword)
+    WHERE k.word IN [${keywords}] RETURN n, count(p) ORDER BY count(p) DESC`
+    findArticles(retrieveQuery, req, res)
 
-  });
+    });
 
-  client.on("error", function(err){
-    console.log(err);
-  });
+    client.on("error", function(err){
+      console.log(err);
+    });
 
-  client.fetch();
+    client.fetch();
 
-})
+  })
 
 module.exports = router;
