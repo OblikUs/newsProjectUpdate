@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const MetaInspector = require('meta-scrape');
+const Metascraper = require('metascraper');
 const path = require('path');
 const https = require('https');
 const fs = require('fs');
@@ -31,7 +31,6 @@ function findArticles(query, req, res) {
     })
 }
 
-
 // Check to see what dev environment we are in
 const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = isDeveloping ? 8080 : process.env.PORT;
@@ -45,31 +44,27 @@ app.use('/api/popup', popup);
 
 //Scraper that takes the URL
 app.post('/', (req,res) => {
-  let client = new MetaInspector(req.body.url, {});
 
-  client.on("fetch", function(){
-    let keywords = md.keywordGenerator(client.title, client.description)
-    keywords = keywords.map(word => {
-      return `"${word}"`;
-    }).join(', ')
-    let source = md.sourceFinder(client.url)
-    if(source.length === 0) {
-      source = [{source: article.author, name: 'unknown', view: 'n/a'}]
-    }
-  let retrieveQuery = `MATCH p=(n:Article)-[r:HAS_KEYWORD]->(k:Keyword)
-  WHERE k.word IN [${keywords}] RETURN n, count(p) ORDER BY count(p) DESC`
-  findArticles(retrieveQuery, req, res)
-
-  });
-
-  client.on("error", function(err){
-    console.log(err);
-  });
-
-  client.fetch();
-
-})
-
+  Metascraper
+    .scrapeUrl(req.body.url)
+    .then(metadata => {
+      let keywords = md.keywordGenerator(metadata.title, metadata.description)
+      console.log('keywords: ', keywords);
+      keywords = keywords.map(word => {
+        return `"${word}"`;
+      }).join(', ')
+      let source = md.sourceFinder(metadata.url)
+      if(source.length === 0) {
+        source = [{source: article.author, name: 'unknown', view: 'n/a'}]
+      }
+      let retrieveQuery = `MATCH p=(n:Article)-[r:HAS_KEYWORD]->(k:Keyword)
+      WHERE k.word IN [${keywords}] RETURN n, count(p) ORDER BY count(p) DESC`
+      findArticles(retrieveQuery, req, res)
+    })
+    .catch(error => {
+      console.log(error);
+    });
+});
 
 if (isDeveloping) {
   app.set('host', 'http://localhost');
@@ -115,6 +110,5 @@ let secureServer = https.createServer({
 }, app).listen('8080', function() {
     console.log("Secure Express server listening on port 8080");
 });
-
 
 module.exports = app;

@@ -6,8 +6,8 @@ const Header = () => (
   <div className={styles.container}>
       <div className={styles.logo}><a href='#'>Oblik</a></div>
     <ul className={styles.mainNav}>
-      <Link to="/how-it-works"><li>How it Works</li></Link>
-      <Link to="/about-us"><li>About Us</li></Link>
+      <li><Link to="/how-it-works">How it Works</Link></li>
+      <li><Link to="/about-us">About Us</Link></li>
       <li><a href="#">Install Oblik</a></li>
     </ul>
   </div>
