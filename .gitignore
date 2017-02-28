@@ -2,3 +2,4 @@ node_modules
 .DS_Store
 ssl
 neo4jAuth.config.js
+npm-debug.log
