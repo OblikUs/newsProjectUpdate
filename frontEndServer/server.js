@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const MetaInspector = require('meta-scrape');
+const Metascraper = require('metascraper');
 const path = require('path');
 const https = require('https');
 const fs = require('fs');
@@ -13,7 +13,6 @@ const popup = require('./routes/popup');
 const md = require('../modifyData');
 const usernameAndPwd = new Buffer("neo4j:c15finalP").toString('base64');
 const r = require("request");
-const neo4j = require('neo4j-driver').v1;
 const neo4jUrl = "http://localhost:7474/db/data/transaction/commit";
 const authUrl = "http://localhost:7474/user/neo4j";
 
@@ -32,7 +31,6 @@ function findArticles(query, req, res) {
     })
 }
 
-
 // Check to see what dev environment we are in
 const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = isDeveloping ? 8080 : process.env.PORT;
@@ -46,6 +44,7 @@ app.use('/api/popup', popup);
 
 //Scraper that takes the URL
 app.post('/', (req,res) => {
+<<<<<<< HEAD
   let client = new MetaInspector(req.body.url, {});
 
   client.on("fetch", function(){
@@ -70,7 +69,29 @@ app.post('/', (req,res) => {
   client.fetch();
 
 })
+=======
+>>>>>>> cc322a69cca4a66f9e312bde1087047bd8fe6bde
 
+  Metascraper
+    .scrapeUrl(req.body.url)
+    .then(metadata => {
+      let keywords = md.keywordGenerator(metadata.title, metadata.description)
+      console.log('keywords: ', keywords);
+      keywords = keywords.map(word => {
+        return `"${word}"`;
+      }).join(', ')
+      let source = md.sourceFinder(metadata.url)
+      if(source.length === 0) {
+        source = [{source: article.author, name: 'unknown', view: 'n/a'}]
+      }
+      let retrieveQuery = `MATCH p=(n:Article)-[r:HAS_KEYWORD]->(k:Keyword)
+      WHERE k.word IN [${keywords}] RETURN n, count(p) ORDER BY count(p) DESC`
+      findArticles(retrieveQuery, req, res)
+    })
+    .catch(error => {
+      console.log(error);
+    });
+});
 
 if (isDeveloping) {
   app.set('host', 'http://localhost');
@@ -116,6 +137,5 @@ let secureServer = https.createServer({
 }, app).listen('8080', function() {
     console.log("Secure Express server listening on port 8080");
 });
-
 
 module.exports = app;
