@@ -1,7 +1,5 @@
 const sources = require('./sources')
 const stopWords = require('./stopWords')
-const partisianPhrases = require('./partisianPhrases')
-
 
 module.exports = (() => {
 

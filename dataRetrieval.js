@@ -1,5 +1,4 @@
 const bodyParser = require('body-parser');
-const neo4j = require('neo4j-driver').v1;
 const neo4jUrl = "http://localhost:7474/db/data/transaction/commit";
 const authUrl = "http://localhost:7474/user/neo4j";
 const cron = require('node-cron');
@@ -29,18 +28,6 @@ MERGE (article:Article {title: x.title}) ON CREATE
   SET article.source = x.source, article.url = x.url, article.view = x.view, article.publishedAt = x.date, article.image = x.image
 
 FOREACH (keywordWord IN x.keywords | MERGE (keyword:Keyword {word: keywordWord}) MERGE (article)-[:HAS_KEYWORD]->(keyword))
-`;
-
-let orientationQuery = `
-WITH {json} AS data
-UNWIND data.data as x
-MERGE (o:Orientation {name: 'x.orientation'})
-
-FOREACH (word IN x.words |
-MERGE ( w:Word {word: x.word})
-ON CREATE SET o.score = 0
-ON MATCH SET o.score = o.score + 1 )
-MERGE (o)-[:HAS_WORD]->(w)
 `;
 
 

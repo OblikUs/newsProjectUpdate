@@ -13,7 +13,6 @@ const popup = require('./routes/popup');
 const md = require('../modifyData');
 const usernameAndPwd = new Buffer("neo4j:c15finalP").toString('base64');
 const r = require("request");
-const neo4j = require('neo4j-driver').v1;
 const neo4jUrl = "http://localhost:7474/db/data/transaction/commit";
 const authUrl = "http://localhost:7474/user/neo4j";
 
