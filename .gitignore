@@ -1,4 +1,5 @@
 node_modules
 .DS_Store
-frontEndServer/ssl
+ssl
+neo4jAuth.config.js
 

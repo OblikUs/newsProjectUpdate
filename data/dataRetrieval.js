@@ -5,7 +5,8 @@ const cron = require('node-cron');
 const got = require('got');
 const r = require("request");
 const md = require('./modifyData')
-const usernameAndPwd = new Buffer("neo4j:c15finalP").toString('base64');
+const neo4jAuthConfig = reqire('../neo4jAuth.config')
+const usernameAndPwd = new Buffer(neo4jAuthConfig).toString('base64');
 const Promise = require('bluebird');
 
 function cypher(query, params, cb) {
