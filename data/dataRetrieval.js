@@ -1,5 +1,4 @@
 const bodyParser = require('body-parser');
-const neo4j = require('neo4j-driver').v1;
 const neo4jUrl = "http://localhost:7474/db/data/transaction/commit";
 const authUrl = "http://localhost:7474/user/neo4j";
 const cron = require('node-cron');
@@ -22,7 +21,7 @@ function cypher(query, params, cb) {
     })
 }
 
-let query = `
+let articleQuery = `
 WITH {json} AS data
 UNWIND data.data as x
 MERGE (article:Article {title: x.title}) ON CREATE
@@ -30,6 +29,7 @@ MERGE (article:Article {title: x.title}) ON CREATE
 
 FOREACH (keywordWord IN x.keywords | MERGE (keyword:Keyword {word: keywordWord}) MERGE (article)-[:HAS_KEYWORD]->(keyword))
 `;
+
 
 let urls = [
            "https://newsapi.org/v1/articles?source=cnn&sortBy=top&apiKey=9f3b3102ab704b7c9a874ee92cdb288f",
@@ -107,7 +107,7 @@ Promise.map(urls, (topStoryUrl) => {
 .then((data) => {
   let json = {};
   json['data'] = data
-  cypher(query, {json:json}, function(err, result) { console.log(err, JSON.stringify(result))});
+  cypher(articleQuery, {json:json}, function(err, result) { console.log(err, JSON.stringify(result))});
 })
 .catch(error => {
   console.log(error);

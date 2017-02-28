@@ -1,7 +1,6 @@
 const sources = require('./sources')
 const stopWords = require('./stopWords')
 
-
 module.exports = (() => {
 
   const sourceFinder = (url) => {
@@ -14,10 +13,14 @@ module.exports = (() => {
     })
   }
 
-  const keywordGenerator = (title, description) => {
-    title = title.toLowerCase().split(' ');
-    description  = description.toLowerCase().split(' ');
-    return title.concat(description)
+  const keywordGenerator = (str1, str2) => {
+    if(str2 === undefined) {
+      str2 = '';
+    }
+    console.log(str2);
+    str1 = str1.toLowerCase().split(' ');
+    str2  = str2.toLowerCase().split(' ');
+    return str1.concat(str2)
       .map( word => {
         word = word.replace(/\W/g, '')
         word = word.replace(/('s')/, '')
