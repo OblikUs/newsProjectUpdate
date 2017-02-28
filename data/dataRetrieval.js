@@ -98,7 +98,6 @@ Promise.map(urls, (topStoryUrl) => {
     article.description = '';
   }
   let keywords = md.keywordGenerator(article.title, article.description)
-  console.log(keywords);
   let source = md.sourceFinder(article.url);
   if(source.length === 0) {
     source = [{source: article.author, name: 'unknown', view: 'n/a'}]
