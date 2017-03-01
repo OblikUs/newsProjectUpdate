@@ -46,12 +46,11 @@ class Page extends React.Component {
         <div className={styles.row}>
           <div className={[styles.primary, styles.col].join(' ')}>
             <h2>Want to see more?</h2>
-
-            <p>Brownie ice cream cotton candy liquorice cake. Macaroon caramels fruitcake lemon drops. Carrot cake jelly halvah biscuit. </p>
+            <p>Check out how our project works! </p>
           </div>
 
           <div className={[styles.secondary, styles.col].join(' ')}>
-            <div className={styles.screenshot}>ScreenShot</div>
+            <div className={styles.screenshot}><img src={"https://media.giphy.com/media/3ogsjN53OjZ2G14Uec/giphy.gif"} className={styles.neo4jgif} alt="neo4j gif"/></div>
           </div>
         </div>
       </div>

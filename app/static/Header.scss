@@ -4,7 +4,7 @@ a {
 }
 
 .container {
-  padding-top: 2em;
+  padding-top: 1.7em;
   padding-bottom: .5em;
   font-family: 'Montserrat', sans-serif;
   text-align: center;
@@ -12,8 +12,9 @@ a {
 
   .logo {
     color: black;
-    font-size: 50px;
+    font-size: 58px;
     transition: .5s ease-in-out;
+    font-weight: 300;
   }
 
   .logo:hover {
@@ -43,7 +44,7 @@ a {
   }
 
   .mainNav li:hover {
-    border-bottom: 3px solid #3acec2;
+    border-bottom: 1px solid black;
   }
 }
 
@@ -63,7 +64,7 @@ a {
   .container {
     flex-direction: row;
     justify-content: space-between;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 57px;
+    padding-right: 10px;
   }
 }

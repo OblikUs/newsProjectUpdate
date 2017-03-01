@@ -10,7 +10,10 @@ const cheerio = require('cheerio');
 const Metascraper = require('metascraper');
 const Promise = require('bluebird');
 
-function get_blazeNewsUrls (newsApiData) {
+let json = {};
+let urlsToScrape;
+
+function get_blazeNewsUrls () {
   r('http://www.theblaze.com/news', function (error, response, html) {
     let blazeUrls = [];
     if (!error && response.statusCode == 200) {
@@ -22,12 +25,30 @@ function get_blazeNewsUrls (newsApiData) {
         let newUrl = "http://www.theblaze.com" + url[i].attribs.href;
         blazeUrls.push(newUrl);
       }
-      scrapeUrls(blazeUrls, newsApiData);
+      urlsToScrape = blazeUrls;
+      get_breitbartNewsUrls()
     }
   });
 }
 
-function scrapeUrls (arr, newsApiData) {
+function get_breitbartNewsUrls () {
+  r('http://www.breitbart.com/big-government/', function (error, response, html) {
+    let breitbartUrls = [];
+    if (!error && response.statusCode == 200) {
+      let $ = cheerio.load(html);
+
+      let urls = $('.article-list').children().children().map((i, url) => {
+        if(url.attribs.href !== undefined) {
+          breitbartUrls.push(url.attribs.href)
+        }
+      })
+      urlsToScrape = urlsToScrape.concat(breitbartUrls)
+      scrapeUrls(urlsToScrape)
+    }
+  });
+}
+
+function scrapeUrls (arr) {
   Promise.map(arr, (blazeArr) => {
     return Metascraper
       .scrapeUrl(blazeArr)
@@ -37,8 +58,7 @@ function scrapeUrls (arr, newsApiData) {
       })
   })
   .then(parsedData => {
-    let json = {};
-    json['data'] = newsApiData.concat(parsedData)
+    json.data = json.data.concat(parsedData)
     cypher(articleQuery, {json:json}, function(err, result) { console.log(err, JSON.stringify(result))})
   })
 }
@@ -139,7 +159,8 @@ let urls = [
     return md.newData(article.title, source[0].name, source[0].view, article.url, keywords, article.publishedAt, article.urlToImage)
   })
   .then((newsApiData) => {
-    get_blazeNewsUrls(newsApiData);
+    json['data'] = newsApiData
+    get_blazeNewsUrls();
   })
   .catch(error => {
     console.log(error);
