@@ -7,7 +7,7 @@
 - Create an directory named `ssl`
 - Generate a self-signed certificate and add the files to the `ssl` directory
   - [this blog post explains how to generate an self-signed certificate](https://matoski.com/article/node-express-generate-ssl/)
-- Run `npm loadData`
+- Run `npm run loadData`
   - Wait until you get this response: `null '{"results":[{"columns":[],"data":[]}],"errors":[]}'`
 - Run `npm start`.
   - [Go to https://localhost:8080/#/](https://localhost:8080/#/)
