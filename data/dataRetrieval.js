@@ -5,7 +5,8 @@ const cron = require('node-cron');
 const got = require('got');
 const r = require("request");
 const md = require('./modifyData')
-const usernameAndPwd = new Buffer("neo4j:c15finalP").toString('base64');
+const neo4jAuthConfig = require('../neo4jAuth.config')
+const usernameAndPwd = new Buffer(neo4jAuthConfig).toString('base64');
 const Promise = require('bluebird');
 
 function cypher(query, params, cb) {
@@ -77,41 +78,41 @@ let urls = [
            "https://newsapi.org/v1/articles?source=usa-today&sortBy=top&apiKey=9f3b3102ab704b7c9a874ee92cdb288f",
            ]
 
-// cron.schedule('43,44 19 * * *', () => {
+cron.schedule('43,44 19 * * *', () => {
 
-  // })
-const apiKey = 'PRcyspm59vmsh7X8ue7NfZFzZz7op1oAfxsjsnCLMHQkRfnvUL';
+  const apiKey = 'PRcyspm59vmsh7X8ue7NfZFzZz7op1oAfxsjsnCLMHQkRfnvUL';
 
-Promise.map(urls, (topStoryUrl) => {
-  return got(topStoryUrl)
-  .catch(function ignore() {});
-})
-.map(response => {
-  let article = JSON.parse(response.body).articles;
-  return article
-})
-.reduce((prev, articles) => {
-  return prev.concat(articles);
-}, [])
-.map((article) => {
-  if(article.description === null) {
-    article.description = '';
-  }
-  let keywords = md.keywordGenerator(article.title, article.description)
-  let source = md.sourceFinder(article.url);
-  if(source.length === 0) {
-    source = [{source: article.author, name: 'unknown', view: 'n/a'}]
-  }
-  return md.newData(article.title, source[0].name, source[0].view, article.url, keywords, article.publishedAt, article.urlToImage)
-})
-.then((data) => {
-  let json = {};
-  json['data'] = data
-  cypher(articleQuery, {json:json}, function(err, result) { console.log(err, JSON.stringify(result))});
-})
-.catch(error => {
-  console.log(error);
-});
+  Promise.map(urls, (topStoryUrl) => {
+    return got(topStoryUrl)
+    .catch(function ignore() {});
+  })
+  .map(response => {
+    let article = JSON.parse(response.body).articles;
+    return article
+  })
+  .reduce((prev, articles) => {
+    return prev.concat(articles);
+  }, [])
+  .map((article) => {
+    if(article.description === null) {
+      article.description = '';
+    }
+    let keywords = md.keywordGenerator(article.title, article.description)
+    let source = md.sourceFinder(article.url);
+    if(source.length === 0) {
+      source = [{source: article.author, name: 'unknown', view: 'n/a'}]
+    }
+    return md.newData(article.title, source[0].name, source[0].view, article.url, keywords, article.publishedAt, article.urlToImage)
+  })
+  .then((data) => {
+    let json = {};
+    json['data'] = data
+    cypher(articleQuery, {json:json}, function(err, result) { console.log(err, JSON.stringify(result))});
+  })
+  .catch(error => {
+    console.log(error);
+  });
 
+})
 
 
