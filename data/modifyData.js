@@ -17,7 +17,6 @@ module.exports = (() => {
     if(str2 === undefined) {
       str2 = '';
     }
-    console.log(str2);
     str1 = str1.toLowerCase().split(' ');
     str2  = str2.toLowerCase().split(' ');
     return str1.concat(str2)
