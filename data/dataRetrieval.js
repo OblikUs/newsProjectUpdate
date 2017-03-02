@@ -5,8 +5,43 @@ const cron = require('node-cron');
 const got = require('got');
 const r = require("request");
 const md = require('./modifyData')
-const usernameAndPwd = new Buffer("neo4j:c15finalP").toString('base64');
+const usernameAndPwd = require('../neo4jAuth.config')
+const cheerio = require('cheerio');
+const Metascraper = require('metascraper');
 const Promise = require('bluebird');
+
+function get_blazeNewsUrls (newsApiData) {
+  r('http://www.theblaze.com/news', function (error, response, html) {
+    let blazeUrls = [];
+    if (!error && response.statusCode == 200) {
+      let $ = cheerio.load(html);
+
+      let url = $('.main-content').children().children().find('.feed-link');
+
+      for(var i = 0; i < url.length; i++) {
+        let newUrl = "http://www.theblaze.com" + url[i].attribs.href;
+        blazeUrls.push(newUrl);
+      }
+      scrapeUrls(blazeUrls, newsApiData);
+    }
+  });
+}
+
+function scrapeUrls (arr, newsApiData) {
+  Promise.map(arr, (blazeArr) => {
+    return Metascraper
+      .scrapeUrl(blazeArr)
+      .then((metadata) => {
+        let keywords = md.keywordGenerator(metadata.title, metadata.description)
+        return md.newData(metadata.title, metadata.publisher, 'right', metadata.url, keywords, metadata.date, metadata.image)
+      })
+  })
+  .then(parsedData => {
+    let json = {};
+    json['data'] = newsApiData.concat(parsedData)
+    cypher(articleQuery, {json:json}, function(err, result) { console.log(err, JSON.stringify(result))})
+  })
+}
 
 function cypher(query, params, cb) {
   r.post({
@@ -79,39 +114,39 @@ let urls = [
 
 // cron.schedule('43,44 19 * * *', () => {
 
-  // })
-const apiKey = 'PRcyspm59vmsh7X8ue7NfZFzZz7op1oAfxsjsnCLMHQkRfnvUL';
+  const apiKey = 'PRcyspm59vmsh7X8ue7NfZFzZz7op1oAfxsjsnCLMHQkRfnvUL';
 
-Promise.map(urls, (topStoryUrl) => {
-  return got(topStoryUrl)
-  .catch(function ignore() {});
-})
-.map(response => {
-  let article = JSON.parse(response.body).articles;
-  return article
-})
-.reduce((prev, articles) => {
-  return prev.concat(articles);
-}, [])
-.map((article) => {
-  if(article.description === null) {
-    article.description = '';
-  }
-  let keywords = md.keywordGenerator(article.title, article.description)
-  let source = md.sourceFinder(article.url);
-  if(source.length === 0) {
-    source = [{source: article.author, name: 'unknown', view: 'n/a'}]
-  }
-  return md.newData(article.title, source[0].name, source[0].view, article.url, keywords, article.publishedAt, article.urlToImage)
-})
-.then((data) => {
-  let json = {};
-  json['data'] = data
-  cypher(articleQuery, {json:json}, function(err, result) { console.log(err, JSON.stringify(result))});
-})
-.catch(error => {
-  console.log(error);
-});
+  Promise.map(urls, (topStoryUrl) => {
+    return got(topStoryUrl)
+    .catch(function ignore() {});
+  })
+  .map(response => {
+    let article = JSON.parse(response.body).articles;
+    return article
+  })
+  .reduce((prev, articles) => {
+    return prev.concat(articles);
+  }, [])
+  .map((article) => {
+    if(article.description === null) {
+      article.description = '';
+    }
+    let keywords = md.keywordGenerator(article.title, article.description)
+    let source = md.sourceFinder(article.url);
+    if(source.length === 0) {
+      source = [{source: article.author, name: 'unknown', view: 'n/a'}]
+    }
+    return md.newData(article.title, source[0].name, source[0].view, article.url, keywords, article.publishedAt, article.urlToImage)
+  })
+  .then((newsApiData) => {
+    get_blazeNewsUrls(newsApiData);
+  })
+  .catch(error => {
+    console.log(error);
+  });
+
+// })
+
 
 
 
