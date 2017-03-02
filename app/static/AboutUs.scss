@@ -1,10 +1,15 @@
 .header {
   font-family: 'Montserrat', sans-serif;
-  text-align: left;
-  padding-left: 100px;
+  font-weight: 200;
+  text-align: center;
+  padding-top: 100px;
+  // padding-left: 400px;
 }
 
 .flex_container {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+  text-align: justify;
   display: flex;
   flex-flow: row wrap;
   width: 100%;
