@@ -1,7 +1,7 @@
 .banner {
   color: #fff;
   background: #3acec2;
-  padding: 6em 8em 9em 8em;
+  padding: 12em 8em 9em 8em;
   text-align: center;
 
   .container{
@@ -81,6 +81,7 @@
 
     .screenshot{
       border: 1px solid black;
+      width: 450px;
       height: 300px;
 
       .neo4jgif {
@@ -105,4 +106,5 @@
   .primary {
     flex:2;
   }
+
 }

@@ -50,7 +50,7 @@ class Page extends React.Component {
           </div>
 
           <div className={[styles.secondary, styles.col].join(' ')}>
-            <div className={styles.screenshot}><img src={"https://media.giphy.com/media/3ogsjN53OjZ2G14Uec/giphy.gif"} className={styles.neo4jgif} alt="neo4j gif"/></div>
+            <div className={styles.screenshot}><img src={"https://media.giphy.com/media/3og0IFNBqItdxx2oJq/giphy.gif"} className={styles.neo4jgif} alt="neo4j gif"/></div>
           </div>
         </div>
       </div>
