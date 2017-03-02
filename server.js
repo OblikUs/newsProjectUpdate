@@ -65,7 +65,7 @@ let secureServer = https.createServer({
 });
 
 cron.schedule('* 9,15 * * *', () => {
-  // dataRetrieval();
+  dataRetrieval();
 })
 
 

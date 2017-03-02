@@ -10,7 +10,7 @@ a {
   text-align: center;
   margin-bottom: 20px;
   background-color: white;
-  width: 95%;
+  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
@@ -71,5 +71,6 @@ a {
     justify-content: space-between;
     padding-left: 57px;
     padding-right: 100px;
+    width: 95%;
   }
 }
