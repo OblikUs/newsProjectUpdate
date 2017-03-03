@@ -5,10 +5,13 @@ a {
 
 .container {
   background: #d1e0e0;
+  height: 40px;
   padding-top: 2em;
   padding-bottom: 3em;
   font-family: 'Montserrat', sans-serif;
   text-align: center;
+  z-index: 3;
+  position:relative;
 
   .madeBy {
     font-size: 15px;

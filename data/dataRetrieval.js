@@ -79,6 +79,8 @@ module.exports = function() {
       })
   }
 
+  json = { data: [data]}
+
   let articleQuery = `
   WITH {json} AS data
   UNWIND data.data as x

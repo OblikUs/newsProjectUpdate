@@ -1,32 +1,16 @@
-.header {
-  font-family: 'Montserrat', sans-serif;
+.about_container {
+  h1 {
+  text-align: left;
   font-weight: 200;
-  text-align: center;
-  padding-top: 100px;
-  // padding-left: 400px;
-}
-
-.flex_container {
+  }
+  padding: 140px 0px 0px 0px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 200;
   text-align: justify;
-  display: flex;
-  flex-flow: row wrap;
-  width: 100%;
+  width: 90%;
   max-width: 800px;
   margin: 0 auto;
-  justify-content: space-around;
-
-  .text1{
-    flex: 0 0 100%;
-  }
-
-   .text2{
-    flex: 0 0 100%;
-  }
-  .text3{
-    flex: 0 0 100%;
-  }
+  height: calc(100vh - 250px);
 }
 
 

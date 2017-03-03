@@ -86,8 +86,8 @@
         text-align: center;
         margin: auto;
         border: 1px solid black;
-        width: 300px;
-        height: 160px;
+        width: 320px;
+        height: 180px;
 
         .neo4jgif {
           width: 100%;
@@ -99,17 +99,39 @@
 }
 
 
-@media (min-width: 667px) {
+@media (min-width: 657px) {
   .banner {
     padding: 12em 8em 9em 8em;
+
+    .container{
+    margin-bottom: 46px;
+      .headline {
+        font-size: 2.7rem;
+        margin-bottom: 20px;
+        margin-top: 26px;
+      }
+    }
   }
 
   .row {
     display: flex;
+
+    .primary {
+      text-align: justify;
+    }
+
+    .secondary {
+      padding-top: 25px;
+      .screenshot {
+        width: 500px;
+        height: 330px;
+      }
+    }
   }
 
   .col {
     flex: 1;
+    padding: 0 10px;
   }
 }
 
