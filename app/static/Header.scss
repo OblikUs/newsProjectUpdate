@@ -19,18 +19,19 @@ a {
 
     .logo {
       font-size: 58px;
-      transition: .5s ease-in-out;
       font-weight: 300;
       margin-left: -10px;
       padding-top: 13px;
       margin-bottom: 0px;
       a {
         color: #333;
+        transition: .5s ease-in-out;
       }
     }
 
-    .logo:hover {
+    .logo a:hover {
       transform: scale(1.1);
+      color: red;
 
     }
 
@@ -53,11 +54,12 @@ a {
       font-size: 20px;
       border-left: solid gray 1px;
       color: black;
+      text-align: center;
       padding: 20px 0px 0px 0px;
       position: fixed;
       width: 250px;
       height: 100vh;
-      background-color: rgba(250,250,250,0.4);
+      background-color: white;
       top: 0;
       right: -330px;
       margin: 0;
@@ -72,7 +74,7 @@ a {
       }
 
       li {
-        padding: 40px 0px  56px 19px;
+        padding: 20px 0px  56px 19px;
         height: 25px;
         box-sizing: border-box;
         margin-right: 40px;
@@ -106,5 +108,17 @@ a {
   .container {
     text-align: left;
     padding-left: 5%;
+
+    .mainNav {
+      background-color: rgba(250,250,250,0.4);
+
+      hr {
+        display: none;
+      }
+
+      li {
+        padding: 50px 0px  56px 19px;
+      }
+    }
   }
 }

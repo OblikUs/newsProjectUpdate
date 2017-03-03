@@ -8,9 +8,13 @@ const Header = () => (
         <div className={styles.menuBtn}></div>
       <ul className={styles.mainNav}>
         <li className={styles.menu}>Menu</li>
+        <hr/>
         <li><Link to="#">Home</Link></li>
+        <hr/>
         <li><Link to="/how-it-works">How it Works</Link></li>
+        <hr/>
         <li><Link to="/about-us">About Us</Link></li>
+        <hr/>
         <li><a href="#">Install Oblik</a></li>
       </ul>
   </div>
