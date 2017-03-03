@@ -19,19 +19,19 @@ a {
 
     .logo {
       font-size: 58px;
+      transition: .5s ease-in-out;
       font-weight: 300;
       margin-left: -10px;
-      padding-top: 13px;
+      padding-top: 10px;
       margin-bottom: 0px;
+      width: 200px;
       a {
         color: #333;
-        transition: .5s ease-in-out;
       }
     }
 
-    .logo a:hover {
+    .logo:hover {
       transform: scale(1.1);
-      color: red;
 
     }
 
