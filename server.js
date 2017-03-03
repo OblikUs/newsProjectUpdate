@@ -41,6 +41,7 @@ if (isDeveloping) {
   app.use(webpackHotMiddleware(compiler));
   //put routes before here
   app.get('*', response);
+
 } else {
   app.use(express.static(`${__dirname}/dist`));
   app.get('*', (req, res) => {
