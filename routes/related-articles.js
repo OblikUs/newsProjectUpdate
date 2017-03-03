@@ -42,7 +42,9 @@ function findArticles(query, req, res) {
         .catch(error => {
           console.log(error);
         });
+    })
 
-  })
+
+
 
 module.exports = router;

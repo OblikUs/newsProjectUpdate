@@ -9,6 +9,7 @@ const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const devConfig = require('./webpack.dev.config.js');
 const relatedArticles = require('./routes/related-articles');
+const articleSearch = require('./routes/article-search');
 const dataRetrieval = require('./data/dataRetrieval')
 const cron = require('node-cron')
 
@@ -18,6 +19,8 @@ const port = isDeveloping ? 8080 : process.env.PORT;
 
 app.use(bodyParser.json({extended:true}));
 app.use('/related-articles', relatedArticles);
+app.use('/article-search', articleSearch);
+
 
 if (isDeveloping) {
   app.set('host', 'http://localhost');
