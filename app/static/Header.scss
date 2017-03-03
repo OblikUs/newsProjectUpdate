@@ -4,22 +4,28 @@ a {
 }
 
 .container {
-  padding-top: 1em;
-  padding-bottom: 1em;
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  margin-bottom: 20px;
   background-color: white;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
   width: 100%;
+  border-bottom: solid gray .2px;
+  padding-top: .5em;
+  padding-bottom: .5em;
+  margin-bottom: 20px;
   position: fixed;
   top: 0;
   left: 0;
 
   .logo {
-    color: black;
     font-size: 58px;
     transition: .5s ease-in-out;
     font-weight: 300;
+    margin-left: 0px;
+    padding-top: 13px;
+    margin-bottom: 0px;
+    a {
+      color: #333;
+    }
   }
 
   .logo:hover {
@@ -27,15 +33,43 @@ a {
 
   }
 
+  .menuBtn {
+    width: 18px;
+    height: 18px;
+    border: solid grey .2px;
+    border-radius: 50%;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+  }
+
+  .menuBtn:hover ~ .mainNav {
+    display: block;
+  }
+
   .mainNav {
+    display: none;
+    border-left: solid gray 1px;
     color: black;
+    padding: 20px 0px 0px 0px;
+    position: fixed;
+    width: 50%;
+    height: 100vh;
+    background-color: white;
+    top: 0;
+    right: 0;
     margin: 0;
-    padding: 0;
     list-style: none;
     text-transform: uppercase;
     box-sizing: border-box;
 
+    hr {
+      width: 100%;
+      color: gray;
+    }
+
     li {
+      padding-left: 19px;
       height: 25px;
       box-sizing: border-box;
       margin-right: 40px;
@@ -48,16 +82,20 @@ a {
     }
   }
 
-  .mainNav li:hover {
+  .mainNav li a:hover {
     border-bottom: 1px solid black;
+  }
+  .mainNav:hover {
+    display: block;
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 667px) {
   .container,
   .mainNav {
     display: flex;
   }
+
 
   .container {
     flex-direction: column;
