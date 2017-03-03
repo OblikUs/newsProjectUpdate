@@ -13,7 +13,6 @@
       font-size: 2.5rem;
       margin-bottom: 20px;
       margin-top: 26px;
-      // font-size: 45px;
     }
 
     .tagline {
@@ -33,6 +32,7 @@
     font-weight: 200;
     padding: 10px 10px;
     text-decoration: none;
+    transition: .7s ease-in-out;
   }
 
   .btn:hover {
