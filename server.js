@@ -9,6 +9,8 @@ const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const devConfig = require('./webpack.dev.config.js');
 const relatedArticles = require('./routes/related-articles');
+const dataRetrieval = require('./data/dataRetrieval')
+const cron = require('node-cron')
 
 // Check to see what dev environment we are in
 const isDeveloping = process.env.NODE_ENV !== 'production';
@@ -62,6 +64,10 @@ let secureServer = https.createServer({
 }, app).listen('8080', function() {
     console.log("Secure Express server listening on port 8080");
 });
+
+cron.schedule('* 9,15 * * *', () => {
+  dataRetrieval();
+})
 
 
 module.exports = app;
