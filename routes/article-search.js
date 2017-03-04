@@ -17,25 +17,36 @@ function findArticles(query, callback) {
       results = result.body.results[0].data.map( article => {
         return article.row
       })
-      let articleUrls = results.filter(article => article[0].url)
-      let total_Left_Articles = results.filter(article => article[0].view === 'left').length
-      let total_Center_Left_Articles = results.filter(article => article[0].view === 'center-left').length
-      let total_Center_Articles = results.filter(article => article[0].view === 'center').length
-      let total_Center_Right_Articles = results.filter(article => article[0].view === 'center-right').length
-      let total_Right_Articles = results.filter(article => article[0].view === 'right').length
 
-      let articleViews = {
+      let Left_Articles = results.filter(article => article[0].view === 'left');
+
+      let Center_Left_Articles = results.filter(article => article[0].view === 'center-left')
+
+      let Center_Articles = results.filter(article => article[0].view === 'center')
+
+      let Center_Right_Articles = results.filter(article => article[0].view === 'center-right')
+
+      let Right_Articles = results.filter(article => article[0].view === 'right')
+
+      let graphDataPayload = {
         data: {
           columns: [
-            ['left', total_Left_Articles ],
-            ['center-left', total_Center_Left_Articles],
-            ['center', total_Center_Articles],
-            ['center-right', total_Center_Right_Articles],
-            ['right', total_Right_Articles]
+            ['left', Left_Articles.length ],
+            ['center-left', Center_Left_Articles.length],
+            ['center', Center_Articles.length],
+            ['center-right', Center_Right_Articles.length],
+            ['right', Right_Articles.length]
           ]
+        },
+        allUrls: {
+          left: Left_Articles.map(article => article[0].url),
+          'center-left': Center_Left_Articles.map(article => article[0].url),
+          center: Center_Articles.map(article => article[0].url),
+          'center-right': Center_Right_Articles.map(article => article[0].url),
+          right: Right_Articles.map(article => article[0].url)
         }
       }
-      callback(articleViews)
+      callback(graphDataPayload)
     })
 
 }
@@ -46,11 +57,10 @@ router.route('/')
       keywords = keywords.map(word => {
         return `"${word}"`;
     }).join(', ')
-      console.log('keywords: ', keywords);
       let retrieveQuery = `MATCH p=(n:Article)-[r:HAS_KEYWORD]->(k:Keyword)
       WHERE k.word IN [${keywords}] RETURN n, count(p) ORDER BY count(p) DESC`
-      findArticles(retrieveQuery, (articlesGraphData) => {
-        res.send(articlesGraphData)
+      findArticles(retrieveQuery, (graphDataPayload) => {
+        res.send(graphDataPayload)
       })
 
   })
