@@ -72,5 +72,4 @@ cron.schedule('* 9,15 * * *', () => {
   dataRetrieval();
 })
 
-
 module.exports = app;

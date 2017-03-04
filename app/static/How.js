@@ -96,11 +96,38 @@ class How extends React.Component {
     console.log('this.state.showUrls: ', this.state.showUrls);
     return (
       <div className={styles.container}>
-
         <div className={styles.title}>
+          <h2>How It Works</h2>
+        </div>
+            <div className={styles.info}>
+            <div className={styles.info1}>
+              <img className={styles.icons} src="http://i.imgur.com/wcg2Jhd.png" />
+              <h3>How we related articles</h3>
+              <p className={styles.p1}>
+                Graph databases! We used Neo4j to make relationships between articles sharing the same context. We created algorithms to extract keywords from the articles we
+                were collecting and made relationships between the ones that shared the same keywords.
+              </p>
+            </div>
+            <div className={styles.info1}>
+              <img className={styles.icons} src="http://i.imgur.com/nWFAUuc.png" />
+              <h3>Insights</h3>
+              <p className={styles.p1}>
+              Our team started to notice a recurring pattern where our graph database would return mostly liberal articles when we are visiting liberal news sources. We realized that liberal news sources tend to share the same vocabulary and subject matter, therefore our database would return more articles from the left. This outcome would be the same when visiting conservative news sources.
+              </p>
+            </div>
+           <div className={styles.info1}>
+             <img className={styles.icons} src="http://i.imgur.com/e0Hm6KQ.png" />
+             <h3>Road Blocks Along The Way</h3>
+             <p className={styles.p1}>
+               Need to get data from sources without API's? Build web crawlers! One of the main hurdles was gathering data from the complete political spectrum since many news sources don't have open APIs, our solution, build webscrapers to gather the data for us.
+             </p>
+          </div>
+          </div>
+
+
+        <div className={styles.subtitle}>
           <h2>Give Oblik A Test Run</h2>
         </div>
-
         <div className={styles.explain}>
           <p>
             Go ahead enter a topic that interests you!! Click the
@@ -134,39 +161,9 @@ class How extends React.Component {
             </div>
           </div>
         </div>
-
-          <div className={styles.info}>
-            <p className={styles.info1}>
-              <h3>How relationships were established between articles</h3>
-              Dessert cake pudding jujubes wafer tootsie roll candy canes ice cream tart. Lollipop sugar plum carrot cake chupa chups ice cream cheesecake carrot cake. Carrot cake donut cake.
-              Lemon drops sweet roll cake ice cream liquorice sugar plum toffee. Brownie candy tiramisu jelly marzipan. Liquorice croissant pastry. Chocolate bar powder sweet chocolate bar toffee.
-              Sweet oat cake marzipan cotton candy marzipan cupcake halvah donut. Jujubes liquorice pie. Croissant powder apple pie jelly-o candy canes candy gummies.
-              Liquorice donut cake caramels carrot cake wafer. Marshmallow bear claw pastry marzipan carrot cake jelly tart. Cake candy sugar plum.
-              Cotton candy jelly gingerbread gingerbread. Pudding gummies soufflé jujubes. Danish tootsie roll sesame snaps pie ice cream.
-            </p>
-            <p className={styles.info2}>
-              <h3>Road Blocks Along The Way</h3>
-              Throughout the development process, the obstacles we faced stacked higher than the ceiling. Our only solution was to think "outside the box" in order to solve them quickly and efficiently.
-              One of the main hurdles was gathering data from the complete politcial spectrum since many many news sources don't have open API's. Our solution, build
-              webscrapers to gather the data for us. Once the data began flowing, we were hindered with the question "how can we derive context from these articles without machine learning?".
-              Through some ingenious algorithms, we successfully transformed our data into meaningful context to which we could generate relationships from. The end goal was to provide
-              quick and accurate information back to the end user. -Team Oblik
-
-            </p>
-            <p className={styles.info3}>
-              <h3>Insights</h3>
-              We categorized news articles based on liberal, neutral, and conservative news sources, so we labeled them with either
-               "left", "center-left", "center", "center-right", and "right". Our team started to notice a recurrent pattern that our
-                database would return mostly "center" and "center-left" articles when visiting liberal websites. The Neo4j database
-                is constantly making relationships between keywords from the database and the articles being visited. We concluded
-                that liberal news sources tend to share the same vocabulary and subject matter. The same goes for the conservative
-                side, the same keywords being used over and over again. We were fascinated by this information and can see why certain
-                people can be drawn into one political avenue compared to another.
-            </p>
-            <div className={styles.imgContainer}>
-              <h3>Technology used</h3>
-              <img className={styles.img} src="https://i.imgur.com/ucxGCPQ.png" />
-            </div>
+        <div className={styles.imgContainer}>
+            <h3>Technology used</h3>
+            <img className={styles.img} src="https://i.imgur.com/ucxGCPQ.png" />
           </div>
       </div>
     )
@@ -177,3 +174,9 @@ class How extends React.Component {
 
 
 export default How;
+
+<div className={styles.imgContainer}>
+            <h3>Technology used</h3>
+            <img className={styles.img} src="https://i.imgur.com/ucxGCPQ.png" />
+          </div>
+

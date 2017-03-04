@@ -1,3 +1,11 @@
+.imgContainer {
+      text-align: center;
+    }
+    .img {
+      width: 80%;
+      align-content: center;
+    }
+
 .container {
   padding-top: 100px;
   padding-left: 50px;
@@ -5,9 +13,17 @@
 
   .title {
     text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    padding-top: 50px;
-    padding-bottom: 20px;
+    font-size: 29px;
+    h2 {
+      font-weight: 200;
+      margin-top: 38px;
+      margin-bottom: 2px;
+    }
+  }
+
+  .subtitle {
+    text-align: left;
+    padding: 10px 0 3px 4%;
 
     h2 {
       font-weight: 200;
@@ -15,9 +31,15 @@
   }
 
   .explain {
-    font-size: 18px;
-    text-align: center;
-    padding-bottom: 120px;
+    font-size: 16px;
+    font-weight: 100;
+    text-align: left;
+    padding-bottom: 40px;
+    padding-left: 4%;
+
+    p {
+      margin: 10px 0 10px 0;
+    }
   }
 
   .form {
@@ -28,7 +50,7 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
-  padding-bottom: 250px;
+  padding-bottom: 100px;
 
     input[type=text], select {
       font-family: 'Montserrat', sans-serif;
@@ -92,48 +114,99 @@
 
   .info {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-flow: row nowrap;
+    text-align: center;
+    margin: auto;
     width: 97%;
+    padding-top: 80px;
+    height: 350px;
+    position:relative;
+    vertical-align: center;
 
     h3 {
-      margin: 0;
-      text-align: center;
-      text-transform: uppercase;
-      font-family: 'Montserrat', sans-serif;
       font-weight: 200;
-      padding-bottom: 40px;
+      text-transform: uppercase;
+
+    }
+
+    .icons {
+      width: 150px;
+      height: 100px;
+      padding-bottom: 3px;
+
     }
 
     .info1 {
-      border-bottom: 1px solid #cfcfd1;
-      padding-bottom: 80px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 200;
+      padding-bottom: 20px;
+      width: 33%;
+      text-align: center;
+      margin: auto;
+      vertical-align: bottom;
 
+      &:first-child {
+        margin-top: 40px;
+      }
+
+      &:nth-child {
+
+      }
+
+      &:last-child {
+        margin-top: 50px;
+      }
+
+      h3 {
+        margin: 2px;
+        padding: 2px;
+      }
+
+      .p1 {
+        margin: auto;
+        text-align: center;
+        width: 80%;
+        font-weight: 200;
+        text-align: justify;
+        line-height: 160%;
+        font-size: 15px;
+        margin-top: 8px;
+      }
     }
 
     .info2 {
-      border-bottom: 1px solid #cfcfd1;
       padding-bottom: 80px;
-      font-family: 'Montserrat', sans-serif;
+      position: absolute;
+      top: 360px;
+      width: 33%;
+      right: 3%;
+    }
+    .p2 {
+      top: 360px;
+      width: 60%;
+      position: absolute;
+      left: 0;
       font-weight: 200;
+      text-align: justify;
+      line-height: 160%;
     }
 
-    .info3 {
-      border-bottom: 1px solid #cfcfd1;
-      padding-bottom: 80px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 200;
-    }
+  .info3 {
+    padding-bottom: 80px;
+    position: absolute;
+    top: 660px;
+    width: 33%;
+    left: 0;
 
-    .imgContainer {
-      text-align: center;
-    }
-    .img {
-      width: 80%;
-      align-content: center;
-    }
+  }
+  .p3 {
+    top: 660px;
+    width: 60%;
+    position: absolute;
+    right: 6%;
+    font-weight: 200;
+    text-align: justify;
+    line-height: 160%;
+  }
+
   }
 
 }
