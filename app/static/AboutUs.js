@@ -25,6 +25,14 @@ const AboutUs = () => (
             <div className={styles.profile}>
               <h3>Estefanía Morton</h3>
               <p>title</p>
+              <div className={styles.sMediaIcons}>
+                <a href="https://www.linkedin.com/in/estefan%C3%ADa-morton-6a261aaa/" target='_blank'>
+                  <img className={styles.linkedin} src="http://i.imgur.com/VMvEv2O.png" />
+                </a>
+                <a href="https://github.com/emortong" target='_blank'>
+                  <img className={styles.github} src="http://i.imgur.com/HVFN0wV.png" />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -33,6 +41,14 @@ const AboutUs = () => (
             <div className={styles.profile}>
               <h3>Tyler Nichols</h3>
               <p>Pizza Critic/Developer</p>
+              <div className={styles.sMediaIcons}>
+                <a href="https://www.linkedin.com/in/tyler-nichols-8a7142133/" target='_blank'>
+                <img className={styles.linkedin} src="http://i.imgur.com/VMvEv2O.png" />
+                </a>
+                <a href="https://www.linkedin.com/in/tyler-nichols-8a7142133/" target='_blank'>
+                <img className={styles.github} src="http://i.imgur.com/HVFN0wV.png" />
+                </a>
+              </div>
             </div>
           </div>
 
@@ -40,7 +56,15 @@ const AboutUs = () => (
             <img src={'https://i.imgur.com/AULF5VS.jpg'} alt="jay"/>
             <div className={styles.profile}>
               <h3>Jay Houn</h3>
-              <p>title</p>
+              <p>I LOVE DOGS and coding</p>
+               <div className={styles.sMediaIcons}>
+                <a href="https://www.linkedin.com/in/johnathanhoun/" target='_blank'>
+                  <img className={styles.linkedin} src="http://i.imgur.com/VMvEv2O.png" />
+                </a>
+                <a href="https://github.com/jhoun" target='_blank'>
+                  <img className={styles.github} src="http://i.imgur.com/HVFN0wV.png" />
+                </a>
+              </div>
             </div>
           </div>
 
