@@ -1,14 +1,14 @@
 import React from 'react';
 import styles from './ArticlesUrls.scss';
 
-const ArticleUrls = ({urls, title}) => (
+const ArticleUrls = ({data, title}) => (
   <ul className={styles.ul}>
-    <h3>{title}&nbsp;<span>{urls.length}</span></h3>
-    { urls.map((g, i) => {
+    <h3>{title}&nbsp;<span>{data.length}</span></h3>
+    { data.map((g, i) => {
       return (
         <li className={styles.li} key={ i }>
-          <a href={g} target='_blank'>
-            <span className={styles.span}>&nbsp;{ g }</span>
+          <a href={g.url} target='_blank'>
+            <p>{g.title}</p>
           </a>
         </li>
       )

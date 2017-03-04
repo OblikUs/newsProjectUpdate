@@ -39,12 +39,20 @@ function findArticles(query, callback) {
           ]
         },
         allUrls: {
-          // title: Left_Articles.map(article => article[0].title),
-          left: Left_Articles.map(article => article[0].url),
-          'center-left': Center_Left_Articles.map(article => article[0].url),
-          center: Center_Articles.map(article => article[0].url),
-          'center-right': Center_Right_Articles.map(article => article[0].url),
-          right: Right_Articles.map(article => article[0].url)
+          'left-titles': Left_Articles.map(article => article[0].title),
+          'left-urls': Left_Articles.map(article => article[0].url),
+
+          'center-left-titles': Center_Left_Articles.map(article => article[0].title),
+          'center-left-urls': Center_Left_Articles.map(article => article[0].url),
+
+          'center-titles': Center_Articles.map(article => article[0].title),
+          'center-urls': Center_Articles.map(article => article[0].url),
+
+          'center-right-titles': Center_Right_Articles.map(article => article[0].title),
+          'center-right-urls': Center_Right_Articles.map(article => article[0].url),
+
+          'right-titles': Right_Articles.map(article => article[0].title),
+          'right-urls': Right_Articles.map(article => article[0].url)
         }
       }
       callback(graphDataPayload)

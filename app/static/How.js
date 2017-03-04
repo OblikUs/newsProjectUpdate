@@ -25,18 +25,26 @@ class How extends React.Component {
         }
       },
       allUrls: {
-        left: [],
-        'center-left': [],
-        center: [],
-        'center-right': [],
-        right: []
+        'left-titles': [],
+        'left-urls': [],
+        'center-left-titles': [],
+        'center-left-urls': [],
+        'center-titles': [],
+        'center-urls': [],
+        'center-right-titles': [],
+        'center-right-urls': [],
+        'right-titles': [],
+        'right-urls': []
       },
-      showUrls: ''
+      showUrls: '',
+      result: []
     }
 
    this.handleSubmit = this.handleSubmit.bind(this);
    this.getData = this.getData.bind(this);
    this.handleArticleUrl = this.handleArticleUrl.bind(this);
+   this.sortData = this.sortData.bind(this);
+
   }
 
   handleSubmit(event) {
@@ -61,20 +69,31 @@ class How extends React.Component {
   }
 
   getData(event) {
-    console.log('event: ', event);
     let articles = JSON.parse(event.currentTarget.responseText);
     this.setState(articles)
   }
 
   handleArticleUrl(event) {
-    this.setState({showUrls: event.target.innerHTML.toLowerCase() })
-    this.setState({hideUrls: !this.state.hideUrls})
+    const {innerHTML} = event.target;
+    this.setState({
+      showUrls: innerHTML.toLowerCase(),
+      result: this.sortData(innerHTML.toLowerCase() + '-urls', innerHTML.toLowerCase() + '-titles' )
+    })
+  }
+
+  sortData(url, title) {
+    const results = this.state.allUrls[`${url}`].map((curr, indx) => {
+      return {
+        url: curr,
+        title: this.state.allUrls[`${title}`][indx]
+      }
+    })
+    return results || []
   }
 
 
-
   render() {
-    let urlsToShow = this.state.allUrls[this.state.showUrls] || []
+    console.log('this.state.showUrls: ', this.state.showUrls);
     return (
       <div className={styles.container}>
 
@@ -105,16 +124,35 @@ class How extends React.Component {
           </div>
 
           <div className={styles.chart}>
-              <div className={styles.urlButtons}>
+            <div className={styles.urlButtons}>
               <button className={styles.button} onClick={this.handleArticleUrl}>Left</button>
               <button className={styles.button} onClick={this.handleArticleUrl}>Center-Left</button>
               <button className={styles.button} onClick={this.handleArticleUrl}>Center</button>
               <button className={styles.button} onClick={this.handleArticleUrl}>Center-Right</button>
               <button className={styles.button} onClick={this.handleArticleUrl}>Right</button>
-              <ArticleUrls urls={urlsToShow} title={this.state.showUrls} />
+              <ArticleUrls data={this.state.result} title={this.state.showUrls} />
             </div>
           </div>
         </div>
+
+          <div className={styles.info}>
+            <p className={styles.info1}>
+              <h3>How relationships were established between the articles</h3>
+              Dessert cake pudding jujubes wafer tootsie roll candy canes ice cream tart. Lollipop sugar plum carrot cake chupa chups ice cream cheesecake carrot cake. Carrot cake donut cake.
+              Lemon drops sweet roll cake ice cream liquorice sugar plum toffee. Brownie candy tiramisu jelly marzipan. Liquorice croissant pastry. Chocolate bar powder sweet chocolate bar toffee.
+              Sweet oat cake marzipan cotton candy marzipan cupcake halvah donut. Jujubes liquorice pie. Croissant powder apple pie jelly-o candy canes candy gummies.
+              Liquorice donut cake caramels carrot cake wafer. Marshmallow bear claw pastry marzipan carrot cake jelly tart. Cake candy sugar plum.
+              Cotton candy jelly gingerbread gingerbread. Pudding gummies soufflé jujubes. Danish tootsie roll sesame snaps pie ice cream.
+            </p>
+            <p className={styles.info2}>
+              <h3>Road Blocks Along The Way</h3>
+              Dessert cake pudding jujubes wafer tootsie roll candy canes ice cream tart. Lollipop sugar plum carrot cake chupa chups ice cream cheesecake carrot cake. Carrot cake donut cake.
+              Lemon drops sweet roll cake ice cream liquorice sugar plum toffee. Brownie candy tiramisu jelly marzipan. Liquorice croissant pastry. Chocolate bar powder sweet chocolate bar toffee.
+              Sweet oat cake marzipan cotton candy marzipan cupcake halvah donut. Jujubes liquorice pie. Croissant powder apple pie jelly-o candy canes candy gummies.
+              Liquorice donut cake caramels carrot cake wafer. Marshmallow bear claw pastry marzipan carrot cake jelly tart. Cake candy sugar plum.
+              Cotton candy jelly gingerbread gingerbread. Pudding gummies soufflé jujubes. Danish tootsie roll sesame snaps pie ice cream.
+            </p>
+          </div>
       </div>
     )
   }
