@@ -123,8 +123,6 @@ class How extends React.Component {
              </p>
           </div>
           </div>
-
-
         <div className={styles.subtitle}>
           <h2>Give Oblik A Test Run</h2>
         </div>

@@ -1,3 +1,4 @@
+
 .imgContainer {
       text-align: center;
     }
@@ -114,14 +115,13 @@
 
   .info {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     text-align: center;
     margin: auto;
     width: 97%;
     padding-top: 80px;
-    height: 350px;
-    position:relative;
     vertical-align: center;
+    justify-content: center;
 
     h3 {
       font-weight: 200;
@@ -137,11 +137,12 @@
     }
 
     .info1 {
+      flex: 1;
       padding-bottom: 20px;
-      width: 33%;
+      width: 400px;
       text-align: center;
-      margin: auto;
-      vertical-align: bottom;
+      margin-right: 20px;
+      margin-left: 20px;
 
       &:first-child {
         margin-top: 40px;
@@ -162,8 +163,8 @@
 
       .p1 {
         margin: auto;
-        text-align: center;
-        width: 80%;
+        // text-align: center;
+        width: 400px;
         font-weight: 200;
         text-align: justify;
         line-height: 160%;
@@ -172,31 +173,7 @@
       }
     }
 
-    .info2 {
-      padding-bottom: 80px;
-      position: absolute;
-      top: 360px;
-      width: 33%;
-      right: 3%;
-    }
-    .p2 {
-      top: 360px;
-      width: 60%;
-      position: absolute;
-      left: 0;
-      font-weight: 200;
-      text-align: justify;
-      line-height: 160%;
-    }
 
-  .info3 {
-    padding-bottom: 80px;
-    position: absolute;
-    top: 660px;
-    width: 33%;
-    left: 0;
-
-  }
   .p3 {
     top: 660px;
     width: 60%;
@@ -212,23 +189,25 @@
 }
 
 
-@media (max-width: 657px) {
+@media (max-width: 600px) {
   .flexContainer {
-    background-color: red;
-    display: flex;
-    // flex-flow: row wrap;
-    // justify-content: center;
+    display: none !important;
+
+  }
+    .subtitle {
+    display: none;
   }
 
-  .chart {
-      display: none;
+  .explain {
+    display: none;
+  }
+
+.imgContainer {
+      // text-align: center;
     }
-
-  .info {
-    display: flex;
-    // flex-direction: column;
-    // justify-content: center;
-    // width: 97%;
-  }
+    .img {
+      width: 100%;
+      // align-content: center;
+    }
 }
 
