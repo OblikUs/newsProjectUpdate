@@ -32,10 +32,16 @@
     "webpack-hot-middleware": "^2.17.0"
   },
   "devDependencies": {},
+  "engines": {
+    "node": "v6.8.0",
+    "npm": "3.10.8"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "loadData": "node data/dataRetrieval.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "rimraf dist && set NODE_ENV=production && webpack --config ./webpack.prod.config.js --progress --profile --colors",
+    "postinstall": "rimraf dist && set NODE_ENV=production && webpack --config ./webpack.prod.config.js --progress --profile --colors"
   },
   "repository": {
     "type": "git",

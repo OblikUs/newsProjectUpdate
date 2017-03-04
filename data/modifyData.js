@@ -14,6 +14,9 @@ module.exports = (() => {
   }
 
   const keywordGenerator = (str1, str2) => {
+    if (str1 === undefined){
+      str1 = '';
+    }
     if(str2 === undefined) {
       str2 = '';
     }

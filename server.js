@@ -46,6 +46,7 @@ if (isDeveloping) {
   app.use(webpackHotMiddleware(compiler));
   //put routes before here
   app.get('*', response);
+
 } else {
   app.use(express.static(`${__dirname}/dist`));
   app.get('*', (req, res) => {
@@ -63,12 +64,12 @@ let secureServer = https.createServer({
     ca: fs.readFileSync('./ssl/ca.crt'),
     requestCert: true,
     rejectUnauthorized: false
-}, app).listen('8080', function() {
-    console.log("Secure Express server listening on port 8080");
+ }, app).listen(port, function() {
+    console.log(`Secure Express server listening on port ${port}`);
 });
 
 cron.schedule('* 9,15 * * *', () => {
-  // dataRetrieval();
+  dataRetrieval();
 })
 
 
