@@ -10,7 +10,11 @@ class Page extends React.Component {
             <h1 className={styles.headline}>Get a Different Perspective</h1>
             <span className={styles.tagline}>Read news articles from the left, right, and just in between.</span>
           </div>
-              <a href="#" className={styles.btn}>Download Now</a>
+              <a href="https://chrome.google.com/webstore/detail/
+                oblikus/jdhmfapoagfijjpbnknhnhojmccphfjb?hl=en-US"
+                target="_blank"
+                className={styles.btn}>Download Now
+              </a>
         </div>
         <div className={styles.imgContainer}>
           <div className={styles.newsExplain}>Over 50+ news sources</div>

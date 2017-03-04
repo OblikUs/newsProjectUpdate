@@ -5,6 +5,12 @@
   .title {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
+    padding-top: 50px;
+    padding-bottom: 20px;
+
+    h2 {
+      font-weight: 200;
+    }
   }
 
   .explain {
@@ -100,7 +106,7 @@
 
     .info1 {
       border-bottom: 1px solid #cfcfd1;
-      padding-bottom: 40px;
+      padding-bottom: 80px;
       font-family: 'Montserrat', sans-serif;
       font-weight: 200;
 
@@ -108,16 +114,25 @@
 
     .info2 {
       border-bottom: 1px solid #cfcfd1;
-      padding-bottom: 40px;
+      padding-bottom: 80px;
       font-family: 'Montserrat', sans-serif;
       font-weight: 200;
     }
 
     .info3 {
       border-bottom: 1px solid #cfcfd1;
-      padding-bottom: 40px;
+      padding-bottom: 80px;
       font-family: 'Montserrat', sans-serif;
       font-weight: 200;
+    }
+
+    .imgContainer {
+      text-align: center;
+    }
+    .img {
+      width: 1300px;
+      height: 500px;
+      align-content: center;
     }
   }
 

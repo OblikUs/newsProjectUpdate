@@ -15,7 +15,9 @@ const Header = () => (
         <hr/>
         <li><Link to="/about-us">About Us</Link></li>
         <hr/>
-        <li><a href="#">Install Oblik</a></li>
+        <li><a href="https://chrome.google.com/webstore/detail/oblikus/jdhmfapoagfijjpbnknhnhojmccphfjb?hl=en-US"
+          target="_blank">Install Oblik
+        </a></li>
       </ul>
   </div>
 );

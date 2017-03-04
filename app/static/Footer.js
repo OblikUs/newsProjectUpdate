@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 
 const Footer = () => (
   <div className={styles.container}>
-      <div className={styles.madeBy}><a href='#'>Made with &#10084; by Devleague Cohort15</a></div>
+      <div className={styles.madeBy}><span>Made with &#10084; by Team Oblik</span></div>
   </div>
 );
 
@@ -15,3 +15,4 @@ export default Footer;
 //       <Link to="/about-us"><li>About Us</li></Link>
 //       <li><a href="#">Install Oblik</a></li>
 //     </ul>
+
