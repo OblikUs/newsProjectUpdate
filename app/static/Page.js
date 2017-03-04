@@ -26,7 +26,7 @@ class Page extends React.Component {
             </div>
 
             <div className={[styles.secondary, styles.col].join(' ')}>
-              <div className={styles.screenshot}>ScreenShot</div>
+              <div className={styles.screenshot}><img src={"https://media.giphy.com/media/3o7btQ8PMLVCCS9JZK/giphy.gif"} className={styles.neo4jgif} alt="neo4j gif"/></div>
             </div>
           </div>
 
@@ -40,7 +40,7 @@ class Page extends React.Component {
             </div>
 
             <div className={[styles.secondary, styles.col].join(' ')}>
-              <div className={styles.screenshot}>ScreenShot</div>
+              <div className={styles.screenshot}></div>
             </div>
           </div>
 
