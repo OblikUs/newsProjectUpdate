@@ -11,11 +11,11 @@ const AboutUs = () => (
           we learned in the program and apply them to teach ourselves new skills; from web crawlers to graph databases, we are proud
           of what we achieved.</p>
           <p>Oblik was born as a response to the current political climate. We can find politics everywhere nowadays, and we wanted to show that there is more than
-          only one news source or perspective to look at when trying to inform ourselves as best as possible about what is going
+           one news source or perspective to look at when trying to inform ourselves about what is going
           on in the world.</p>
          <p>While building this project and spending so much time looking at news articles from different points of the political spectrum
-         we learned to read the news better. Noticing that most articles are inevitably biased, and that as users we need to be as
-         critical as ever, this is why we decided to name our product Oblik, aliasing the word "oblique" (having a slant or sloping direction),
+         we learned to read the news better. Noticing that most articles are inevitably biased, and that as users, we need to be as
+         critical as ever. This is why we decided to name our product Oblik, aliasing the word "oblique" (having a slant or sloping direction),
          to remind us of our biases, helping us fight them, and read news the most objective way possible.</p>
         </div>
 
@@ -24,7 +24,7 @@ const AboutUs = () => (
             <img src={'https://i.imgur.com/qJOBORD.jpg'} alt="estefania"/>
             <div className={styles.profile}>
               <h3>Estefanía Morton</h3>
-              <p>Worked on: Neo4j Database/Frontend/Chrome Extension</p>
+              <p>title</p>
             </div>
           </div>
 
@@ -32,7 +32,7 @@ const AboutUs = () => (
             <img src={'http://i.imgur.com/2BIHdnZ.jpg'} alt="tyler"/>
             <div className={styles.profile}>
               <h3>Tyler Nichols</h3>
-              <p>Worked on: Neo4j Database/Frontend/Chrome Extension</p>
+              <p>Pizza Critic/Developer</p>
             </div>
           </div>
 

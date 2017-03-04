@@ -93,7 +93,6 @@ class How extends React.Component {
 
 
   render() {
-    console.log('this.state.showUrls: ', this.state.showUrls);
     return (
       <div className={styles.container}>
 

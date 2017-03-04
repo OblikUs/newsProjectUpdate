@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import styles from './Page.scss';
 
 class Page extends React.Component {
@@ -25,7 +26,7 @@ class Page extends React.Component {
             <div className={[styles.primary, styles.col].join(' ')}>
               <h2>Click and Explore</h2>
 
-              <p>It's as easy as clicking the chrome extension icon to unleash the true power that is Oblik</p>
+              <p>Its as easy as clicking the chrome extension icon to unleash the true power that is Oblik</p>
 
             </div>
 
@@ -50,7 +51,7 @@ class Page extends React.Component {
 
           <div className={styles.row}>
             <div className={[styles.primary, styles.col].join(' ')}>
-              <h2>Want to see more?</h2>
+              <h2><Link to="how-it-works">Want to see more?</Link></h2>
               <p>Check out how our project works! </p>
             </div>
 
