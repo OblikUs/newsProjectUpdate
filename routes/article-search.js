@@ -12,11 +12,22 @@ function findArticles(query, callback) {
     headers:{Authorization: usernameAndPwd},
     json:{statements:[{statement:query, resultDataContents:[ "row", "graph"]}]}},
     function(err, result) {
+      let seen = {};
       result = JSON.stringify(result)
       result = JSON.parse(result)
       results = result.body.results[0].data.map( article => {
         return article.row
+      }).filter( article => {
+        let url = article[0].url
+        if(seen[url]) {
+          return;
+        } else {
+          seen[url] = true;
+          return article;
+        }
       })
+
+      console.log(results);
 
       let Left_Articles = results.filter(article => article[0].view === 'left');
 
@@ -69,6 +80,7 @@ router.route('/')
       let retrieveQuery = `MATCH p=(n:Article)-[r:HAS_KEYWORD]->(k:Keyword)
       WHERE k.word IN [${keywords}] RETURN n, count(p) ORDER BY count(p) DESC`
       findArticles(retrieveQuery, (graphDataPayload) => {
+        console.log(graphDataPayload);
         res.send(graphDataPayload)
       })
 
