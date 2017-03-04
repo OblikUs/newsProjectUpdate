@@ -24,7 +24,7 @@ const AboutUs = () => (
             <img src={'https://i.imgur.com/qJOBORD.jpg'} alt="estefania"/>
             <div className={styles.profile}>
               <h3>Estefanía Morton</h3>
-              <p>title</p>
+              <p>I eat chips while Webpack loads</p>
               <div className={styles.sMediaIcons}>
                 <a href="https://www.linkedin.com/in/estefan%C3%ADa-morton-6a261aaa/" target='_blank'>
                   <img className={styles.linkedin} src="http://i.imgur.com/VMvEv2O.png" />

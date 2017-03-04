@@ -37,20 +37,6 @@ class Page extends React.Component {
 
           <div className={styles.row}>
             <div className={[styles.primary, styles.col].join(' ')}>
-              <h2>Pick a side</h2>
-
-
-              <p>Cake sesame snaps sweet tart candy canes tiramisu I love oat cake chocolate bar. Jelly beans pastry brownie sugar plum pastry bear claw tiramisu tootsie roll. Tootsie roll wafer I love chocolate donuts.</p>
-
-            </div>
-
-            <div className={[styles.secondary, styles.col].join(' ')}>
-              <div className={styles.screenshot}></div>
-            </div>
-          </div>
-
-          <div className={styles.row}>
-            <div className={[styles.primary, styles.col].join(' ')}>
               <h2><Link to="how-it-works">Want to see more?</Link></h2>
               <p>Check out how our project works! </p>
             </div>
