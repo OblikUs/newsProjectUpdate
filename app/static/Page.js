@@ -18,7 +18,7 @@ class Page extends React.Component {
         </div>
         <div className={styles.imgContainer}>
           <div className={styles.newsExplain}>Over 50+ news sources</div>
-          <img src={'http://i.imgur.com/aFZOJfT.png'} alt="news_articles" className={styles.newsLogos}/>
+          <img src={'https://i.imgur.com/aFZOJfT.png'} alt="news_articles" className={styles.newsLogos}/>
         </div>
         <div className={styles.rowContainer}>
           <div className={styles.row}>
