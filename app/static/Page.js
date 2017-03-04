@@ -23,9 +23,9 @@ class Page extends React.Component {
         <div className={styles.rowContainer}>
           <div className={styles.row}>
             <div className={[styles.primary, styles.col].join(' ')}>
-              <h2>Click and See</h2>
+              <h2>Click and Explore</h2>
 
-              <p>Cupcake ipsum dolor sit. Amet chocolate cake gummies jelly beans candy bonbon brownie candy. Gingerbread powder muffin. Icing cotton candy. Croissant icing pie ice cream brownie I love cheesecake cookie. Pastry chocolate pastry jelly croissant.</p>
+              <p>It's as easy as clicking the chrome extension icon to unleash the true power that is Oblik</p>
 
             </div>
 
