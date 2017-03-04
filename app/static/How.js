@@ -105,7 +105,7 @@ class How extends React.Component {
           <p>
             Go ahead enter a topic that interests you!! Click the
             buttons below to explore related news articles
-            from hundreds different sources and views.
+            from hundreds of different sources and views.
           </p>
           <p>
             Cant find what your looking for? Dont worry, we are adding thousands of articles
@@ -137,7 +137,7 @@ class How extends React.Component {
 
           <div className={styles.info}>
             <p className={styles.info1}>
-              <h3>How relationships were established between the articles</h3>
+              <h3>How relationships were established between articles</h3>
               Dessert cake pudding jujubes wafer tootsie roll candy canes ice cream tart. Lollipop sugar plum carrot cake chupa chups ice cream cheesecake carrot cake. Carrot cake donut cake.
               Lemon drops sweet roll cake ice cream liquorice sugar plum toffee. Brownie candy tiramisu jelly marzipan. Liquorice croissant pastry. Chocolate bar powder sweet chocolate bar toffee.
               Sweet oat cake marzipan cotton candy marzipan cupcake halvah donut. Jujubes liquorice pie. Croissant powder apple pie jelly-o candy canes candy gummies.
@@ -146,6 +146,14 @@ class How extends React.Component {
             </p>
             <p className={styles.info2}>
               <h3>Road Blocks Along The Way</h3>
+              Dessert cake pudding jujubes wafer tootsie roll candy canes ice cream tart. Lollipop sugar plum carrot cake chupa chups ice cream cheesecake carrot cake. Carrot cake donut cake.
+              Lemon drops sweet roll cake ice cream liquorice sugar plum toffee. Brownie candy tiramisu jelly marzipan. Liquorice croissant pastry. Chocolate bar powder sweet chocolate bar toffee.
+              Sweet oat cake marzipan cotton candy marzipan cupcake halvah donut. Jujubes liquorice pie. Croissant powder apple pie jelly-o candy canes candy gummies.
+              Liquorice donut cake caramels carrot cake wafer. Marshmallow bear claw pastry marzipan carrot cake jelly tart. Cake candy sugar plum.
+              Cotton candy jelly gingerbread gingerbread. Pudding gummies soufflé jujubes. Danish tootsie roll sesame snaps pie ice cream.
+            </p>
+            <p className={styles.info3}>
+              <h3>Insights</h3>
               Dessert cake pudding jujubes wafer tootsie roll candy canes ice cream tart. Lollipop sugar plum carrot cake chupa chups ice cream cheesecake carrot cake. Carrot cake donut cake.
               Lemon drops sweet roll cake ice cream liquorice sugar plum toffee. Brownie candy tiramisu jelly marzipan. Liquorice croissant pastry. Chocolate bar powder sweet chocolate bar toffee.
               Sweet oat cake marzipan cotton candy marzipan cupcake halvah donut. Jujubes liquorice pie. Croissant powder apple pie jelly-o candy canes candy gummies.
