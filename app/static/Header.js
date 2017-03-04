@@ -5,7 +5,9 @@ import { Link } from 'react-router';
 const Header = () => (
   <div className={styles.container}>
         <div className={styles.logo}><a href='#'>Oblik</a></div>
-        <div className={styles.menuBtn}></div>
+        <div className={styles.menuBtn}>
+          <img className={styles.svg} src="http://f.cl.ly/items/1U2c3b1215383h3a2T2r/icon-menu.svg" />
+        </div>
       <ul className={styles.mainNav}>
         <li className={styles.menu}>Menu</li>
         <hr/>

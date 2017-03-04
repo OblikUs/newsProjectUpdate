@@ -38,16 +38,20 @@ a {
     .menuBtn {
       width: 18px;
       height: 18px;
-      border: solid grey .2px;
-      border-radius: 50%;
       position: fixed;
-      top: 10px;
-      right: 10px;
+      top: 38px;
+      right: 50px;
+
+      .svg {
+        width: 2em;
+        opacity: .5;
+      }
     }
 
     .menuBtn:hover ~ .mainNav {
       display: block;
       right: -20px;
+
     }
 
     .mainNav {
@@ -110,7 +114,7 @@ a {
     padding-left: 5%;
 
     .mainNav {
-      background-color: rgba(250,250,250,0.4);
+      background-color: rgba(250,250,250,0.7);
 
       hr {
         display: none;
