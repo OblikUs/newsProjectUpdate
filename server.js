@@ -55,13 +55,13 @@ if (isDeveloping) {
 }
 
 //SSL so that we can take URL from Https
-let secureServer = https.createServer(
+let secureServer = https.createServer({
     key: fs.readFileSync('./ssl/server.key'),
     cert: fs.readFileSync('./ssl/server.crt'),
     ca: fs.readFileSync('./ssl/ca.crt'),
     requestCert: true,
     rejectUnauthorized: false
- app).listen(port, function() {
+ }, app).listen(port, function() {
     console.log(`Secure Express server listening on port ${port}`);
 });
 
