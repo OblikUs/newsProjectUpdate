@@ -1,6 +1,8 @@
 .ul {
+  margin: 0;
   overflow: scroll;
   max-height: 400px;
+  max-width: 550px;
 }
 
 .li {
@@ -10,6 +12,7 @@
 h3 {
   font-family: 'Montserrat', sans-serif;
   padding-bottom: 20px;
+  padding-top: 20px;
 
 }
 

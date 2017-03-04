@@ -31,10 +31,7 @@ class How extends React.Component {
         'center-right': [],
         right: []
       },
-      showUrls: '',
-      hideUrls: false
-
-
+      showUrls: ''
     }
 
    this.handleSubmit = this.handleSubmit.bind(this);
@@ -64,6 +61,7 @@ class How extends React.Component {
   }
 
   getData(event) {
+    console.log('event: ', event);
     let articles = JSON.parse(event.currentTarget.responseText);
     this.setState(articles)
   }
@@ -82,29 +80,40 @@ class How extends React.Component {
 
         <div className={styles.title}>
           <h2>Give Oblik A Test Run</h2>
-          <p>
-            Go ahead enter some keywords of a topic that interests you!!
-          </p>
-
         </div>
 
-        <form id="form" className={styles.form} onSubmit={this.handleSubmit}>
-          <input type="text" id="inputText" placeholder="search for a topic" />
-          <input type="submit" id="submit" value="SUBMIT" />
-        </form>
+        <div className={styles.explain}>
+          <p>
+            Go ahead enter a topic that interests you!! Click the
+            buttons below to explore related news articles
+            from hundreds different sources and views.
+          </p>
+          <p>
+            Cant find what your looking for? Dont worry, we are adding thousands of articles
+            a day to ensure you have the most up to date news all the time.
+          </p>
+        </div>
 
-        <div className={styles.chart}>
-          <C3Chart data={this.state.data} style={{width: 500, height: 400}} />
+        <div className={styles.flexContainer}>
+          <div className={styles.leftHow}>
+            <form id="form" className={styles.form} onSubmit={this.handleSubmit}>
+              <input type="text" id="inputText" placeholder="search for a topic" />
+              <input type="submit" id="submit" value="SUBMIT" />
+            </form>
 
-          <div className={styles.urlButtons}>
-            <button className={styles.button} onClick={this.handleArticleUrl}>Left</button>
-            <button className={styles.button} onClick={this.handleArticleUrl}>Center-Left</button>
-            <button className={styles.button} onClick={this.handleArticleUrl}>Center</button>
-            <button className={styles.button} onClick={this.handleArticleUrl}>Center-Right</button>
-            <button className={styles.button} onClick={this.handleArticleUrl}>Right</button>
-            <ArticleUrls urls={urlsToShow} title={this.state.showUrls} />
+            <C3Chart data={this.state.data} style={{width: 500, height: 400}} />
           </div>
 
+          <div className={styles.chart}>
+              <div className={styles.urlButtons}>
+              <button className={styles.button} onClick={this.handleArticleUrl}>Left</button>
+              <button className={styles.button} onClick={this.handleArticleUrl}>Center-Left</button>
+              <button className={styles.button} onClick={this.handleArticleUrl}>Center</button>
+              <button className={styles.button} onClick={this.handleArticleUrl}>Center-Right</button>
+              <button className={styles.button} onClick={this.handleArticleUrl}>Right</button>
+              <ArticleUrls urls={urlsToShow} title={this.state.showUrls} />
+            </div>
+          </div>
         </div>
       </div>
     )

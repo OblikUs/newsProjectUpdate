@@ -39,6 +39,7 @@ function findArticles(query, callback) {
           ]
         },
         allUrls: {
+          // title: Left_Articles.map(article => article[0].title),
           left: Left_Articles.map(article => article[0].url),
           'center-left': Center_Left_Articles.map(article => article[0].url),
           center: Center_Articles.map(article => article[0].url),
