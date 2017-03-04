@@ -1,7 +1,8 @@
+
 .banner {
   color: #fff;
   background: #3acec2;
-  padding: 12em 8em 9em 8em;
+  padding: 8em 2em 7em 2em;
   text-align: center;
 
   .container{
@@ -9,7 +10,7 @@
     .headline {
       font-family: 'Montserrat', sans-serif;
       font-weight: 200;
-      font-size: 3.3rem;
+      font-size: 2.5rem;
       margin-bottom: 20px;
       margin-top: 26px;
     }
@@ -17,7 +18,7 @@
     .tagline {
       font-family: 'Montserrat', sans-serif;
       text-transform: uppercase;
-      font-size: 1rem;
+      font-size: .9rem;
       font-weight: 200;
     }
   }
@@ -31,6 +32,7 @@
     font-weight: 200;
     padding: 10px 10px;
     text-decoration: none;
+    transition: .7s ease-in-out;
   }
 
   .btn:hover {
@@ -45,7 +47,7 @@
 }
 
 .imgContainer {
-  margin-top: 70px;
+  margin-top: 40px;
 
   .newsExplain {
     text-align: center;
@@ -57,52 +59,87 @@
     display: block;
     margin: auto;
     width: 85%;
-    margin-bottom: 100px;
+    margin-bottom: 60px;
   }
 }
 
-.row {
-  margin-bottom: 80px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 200;
-  font-size: 17px;
-  h2 {
-    font-weight: 300;
-  }
+.rowContainer {
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  .row {
+    margin-bottom: 80px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    font-size: 17px;
+    h2 {
+      font-weight: 300;
+      text-align: center;
+    }
 
-  .primary {
-    margin-left: 70px;
-    margin-right: 100px;
-  }
+    .primary {
+      text-align: justify;
+    }
 
-  .secondary{
-    margin-right: 70px;
-    margin-left: 70px;
+    .secondary{
+      .screenshot{
+        text-align: center;
+        margin: auto;
+        border: 1px solid black;
+        width: 320px;
+        height: 180px;
 
-    .screenshot{
-      border: 1px solid black;
-      width: 450px;
-      height: 300px;
-
-      .neo4jgif {
-        width: 100%;
-        height: 100%;
+        .neo4jgif {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
   }
 }
 
-@media (min-width: 769px) {
+
+@media (min-width: 657px) {
+  .banner {
+    padding: 12em 8em 9em 8em;
+
+    .container{
+    margin-bottom: 46px;
+      .headline {
+        font-size: 2.7rem;
+        margin-bottom: 20px;
+        margin-top: 26px;
+      }
+    }
+  }
+
   .row {
     display: flex;
+
+    .primary {
+      text-align: justify;
+    }
+
+    .secondary {
+      padding-top: 25px;
+      .screenshot {
+        width: 500px;
+        height: 330px;
+      }
+    }
   }
 
   .col {
     flex: 1;
+    padding: 0 10px;
   }
 }
 
 @media (min-width: 1025px) {
+  .banner {
+    padding: 12em 8em 9em 8em;
+  }
+
   .primary {
     flex:2;
   }

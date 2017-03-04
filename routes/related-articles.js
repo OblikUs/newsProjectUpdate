@@ -27,11 +27,18 @@ function findArticles(query, req, res) {
       Metascraper
         .scrapeUrl(req.body.url)
         .then(metadata => {
+          console.log(metadata.url);
+          if(metadata.title === null && metadata.description === null) {
+            return;
+          }
           let keywords = md.keywordGenerator(metadata.title, metadata.description)
           keywords = keywords.map(word => {
             return `"${word}"`;
         }).join(', ')
-          let source = md.sourceFinder(metadata.url)
+          let source = [];
+          if(metadata.url !== null) {
+            source = md.sourceFinder(metadata.url)
+          }
           if(source.length === 0) {
             source = [{source: 'unknown', name: 'unknown', view: 'n/a'}]
           }

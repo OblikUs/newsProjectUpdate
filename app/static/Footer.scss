@@ -4,18 +4,21 @@ a {
 }
 
 .container {
-  background: #3acec2;
+  background: #d1e0e0;
+  height: 40px;
   padding-top: 2em;
-  padding-bottom: 5em;
+  padding-bottom: 3em;
   font-family: 'Montserrat', sans-serif;
   text-align: center;
+  z-index: 3;
+  position:relative;
 
   .madeBy {
     font-size: 15px;
     margin-top: 10px;
-
+    font-weight: 300;
     a {
-      color: white;
+      color: black;
     }
   }
 
