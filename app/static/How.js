@@ -100,7 +100,7 @@ class How extends React.Component {
         </div>
             <div className={styles.info}>
             <div className={styles.info1}>
-              <img className={styles.icons} src="http://i.imgur.com/wcg2Jhd.png" />
+              <img className={styles.icons} src="https://i.imgur.com/wcg2Jhd.png" />
               <h3>How we related articles</h3>
               <p className={styles.p1}>
                 Graph databases! We used Neo4j to make relationships between articles sharing the same context. We created algorithms to extract keywords from the articles we
@@ -108,14 +108,14 @@ class How extends React.Component {
               </p>
             </div>
             <div className={styles.info1}>
-              <img className={styles.icons} src="http://i.imgur.com/nWFAUuc.png" />
+              <img className={styles.icons} src="https://i.imgur.com/nWFAUuc.png" />
               <h3>Insights</h3>
               <p className={styles.p1}>
               Our team started to notice a recurring pattern where our graph database would return mostly liberal articles when we are visiting liberal news sources. We realized that liberal news sources tend to share the same vocabulary and subject matter, therefore our database would return more articles from the left. This outcome would be the same when visiting conservative news sources.
               </p>
             </div>
            <div className={styles.info1}>
-             <img className={styles.icons} src="http://i.imgur.com/e0Hm6KQ.png" />
+             <img className={styles.icons} src="https://i.imgur.com/e0Hm6KQ.png" />
              <h3>Road Blocks Along The Way</h3>
              <p className={styles.p1}>
                Need to get data from sources without API's? Build web crawlers! One of the main hurdles was gathering data from the complete political spectrum since many news sources don't have open APIs, our solution, build webscrapers to gather the data for us.
