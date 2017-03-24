@@ -68,8 +68,8 @@ app.listen(port, function() {
     console.log(`Secure Express server listening on port ${port}`);
 });
 
-cron.schedule('* 9,15 * * *', () => {
-  dataRetrieval();
-})
+// cron.schedule('* 9,15 * * *', () => {
+//   dataRetrieval();
+// })
 
 module.exports = app;
